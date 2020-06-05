@@ -8,7 +8,7 @@ import Navbar from 'src/components/Navbar'
 import * as Text from 'src/components/Text'
 import { cityToEmails } from 'src/data/cityData'
 import * as emailData from 'src/data/email'
-import { typography } from 'src/styles'
+import { colors, typography } from 'src/styles'
 import { makeMailToLink } from 'src/utils/mailto'
 
 interface CityOption {
@@ -118,6 +118,22 @@ const LandingPage = () => {
             </Box>
           </Box>
         )}
+
+        <Box mt={5} pt={3} borderTop={`1px solid ${colors.textGray}`}>
+          <Text.Body>
+            Speak up, speak now is an intitative that empowers the people to
+            hold their city officials accountable. Thanks to the help of a LOT
+            of people, we have been able to collect the contact information of
+            city officials in many California cities. The fact that Los Angeles
+            has a Democratic Mayor with 14 of it's 15 council members being
+            Democrats and are following up a city budget that gave 52% of
+            allotment to the police and are considering a new one that cuts
+            social services while increasing police budget allotment to 57%
+            shows that voting is not enough. We MUST hold our democratically
+            elected representatives accountable and have our best interests at
+            heart.
+          </Text.Body>
+        </Box>
       </Box>
     </Box>
   )
