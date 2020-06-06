@@ -1,5 +1,7 @@
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
+import 'css.gg/icons/css/instagram.css'
+import 'css.gg/icons/css/twitter.css'
 import * as React from 'react'
 import {
   border,
@@ -40,8 +42,10 @@ const Icon = styled<'i', IconProps>('i')(
   shadow,
 )
 
+type AvailableIcon = 'instagram' | 'twitter'
+
 type IconComponentProps = IconProps & {
-  icon: string
+  icon: AvailableIcon
   size?: number
   color?: string
 }

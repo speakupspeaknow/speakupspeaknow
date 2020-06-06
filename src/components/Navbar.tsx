@@ -1,20 +1,12 @@
 import { css } from '@emotion/core'
 import * as React from 'react'
 import Box from 'src/components/Box'
+import Icon from 'src/components/Icon'
+import { ExternalLink } from 'src/components/Link'
 import Logo from 'src/components/Logo'
+import { colors } from 'src/styles'
 
 interface Props {}
-
-// const buttonStyles = css`
-//   padding:
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   svg {
-//     height: 1em;
-//     margin-right: 5px;
-//   }
-// `
 
 const Navbar = (props: Props) => (
   <Box
@@ -35,7 +27,12 @@ const Navbar = (props: Props) => (
         }
       `}
     >
-      Menu
+      <ExternalLink href="https://www.instagram.com/speakup_speaknow">
+        <Icon icon="instagram" size={1} color={colors.primaryTeal} />
+      </ExternalLink>
+      <ExternalLink href="https://twitter.com/spkup_spknow">
+        <Icon icon="twitter" color={colors.primaryTeal} />
+      </ExternalLink>
     </Box>
   </Box>
 )
