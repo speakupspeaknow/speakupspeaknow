@@ -144,7 +144,7 @@ const LandingPage = () => {
           )}
 
           <Box mt={5} pt={3} borderTop={`1px solid ${colors.textGray}`}>
-            <Text.Body color="white" mb={2}>
+            <Text.Body color="textGray" mb={2}>
               Speak up, Speak now is an intitative that empowers the people to
               hold their city officials accountable. Thanks to the help of a LOT
               of people, we've collected the contact information of city
@@ -156,7 +156,7 @@ const LandingPage = () => {
               .
             </Text.Body>
 
-            <Text.Body color="white">
+            <Text.Body color="textGray">
               If your city doesn't have the contact info of your city officials
               inputted yet, please send an email to{' '}
               <ExternalLink href="mailto:tips@speakupspeaknow.org">
