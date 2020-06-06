@@ -14,18 +14,6 @@ This does not align with the values that I have as your constituent and I demand
 
 Defunding the police and restructuring the budget is an absolute necessity now more than ever. Police perpetuate a pattern of excessive violence and force, especially directed towards Black People and their communities. The police refuse to hold their own accountable and this is unacceptable. 
 
-I would like to bring attention to the #8CantWait project as well. Data proves that the the following 8 policies decrease police violence by as much as 72%:
-
-Ban chokeholds and strangle holds. 
-Require de-escalation.
-Require warning before shooting.
-Exhaust all other means before shooting.
-Duty to intervene. 
-Ban shooting at moving vehicles. 
-Require use of force continuum. 
-Require comprehensive reporting
-
-
 We are in the middle of a global pandemic that has killed 100,000 Americans and more than 40 million people have filed for unemployment. Healthcare workers are without proper equipment and essential workers are not being fairly compensated or protected for the great work they do. We don’t need more police, we need more social safety nets. Funds intended for police would be better off being sorted to initiatives that 
 
 Enrich our public schools and students
