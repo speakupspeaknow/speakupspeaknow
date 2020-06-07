@@ -11,6 +11,10 @@ import * as emailData from 'src/data/email'
 import { colors, typography } from 'src/styles'
 import { makeMailToLink } from 'src/utils/mailto'
 import Wave from 'src/components/SVG/Wave'
+import {
+  baseButtonStyles,
+  styleVariants,
+} from 'src/styles/components/buttonlike'
 import { FacebookShareButton, TwitterShareButton } from 'react-share'
 
 interface CityOption {
@@ -153,28 +157,24 @@ const LandingPage = () => {
                   `}
                 >
                   <FacebookShareButton
-                    style={{ outline: 'none' }}
+                    style={{
+                      outline: 'none',
+                      ...baseButtonStyles,
+                      ...styleVariants.shareFacebook,
+                    }}
                     url="https://www.speakupspeaknow.org"
                   >
-                    <ExternalLink
-                      asButton
-                      noUnderline
-                      buttonStyle="shareFacebook"
-                    >
-                      Share on Facebook
-                    </ExternalLink>
+                    Share on Facebook
                   </FacebookShareButton>
                   <TwitterShareButton
-                    style={{ outline: 'none' }}
+                    style={{
+                      outline: 'none',
+                      ...baseButtonStyles,
+                      ...styleVariants.shareTwitter,
+                    }}
                     url="https://www.speakupspeaknow.org"
                   >
-                    <ExternalLink
-                      asButton
-                      noUnderline
-                      buttonStyle="shareTwitter"
-                    >
-                      Share on Twitter
-                    </ExternalLink>
+                    Share on Twitter
                   </TwitterShareButton>
                 </Box>
               </Box>
