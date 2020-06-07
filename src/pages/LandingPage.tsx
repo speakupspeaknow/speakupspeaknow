@@ -216,7 +216,7 @@ const LandingPage = () => {
               inputted yet, please send an email to{' '}
               <ExternalLink
                 onClick={(): void => {
-                  track('Requested Contact Info')
+                  track('Wants New City Added')
                 }}
                 href="mailto:tips@speakupspeaknow.org"
               >
