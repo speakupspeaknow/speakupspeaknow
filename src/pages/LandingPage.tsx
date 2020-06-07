@@ -12,13 +12,14 @@ import { colors, typography } from 'src/styles'
 import { makeMailToLink } from 'src/utils/mailto'
 import Wave from 'src/components/SVG/Wave'
 import { FacebookShareButton, TwitterShareButton } from 'react-share'
+import { useAnalytics } from 'use-analytics'
 
 interface CityOption {
   value: string
   label: string
 }
 
-const cityOptions = Object.keys(cityToEmails).map((cityName) => ({
+const cityOptions = Object.keys(cityToEmails).map((cityName: string) => ({
   value: cityName,
   label: cityName,
 }))
@@ -42,6 +43,8 @@ const LandingPage = () => {
     },
     [setPersonName],
   )
+
+  const { track } = useAnalytics()
 
   return (
     <Box
@@ -127,6 +130,9 @@ const LandingPage = () => {
               </Text.SectionSubheader>
               <Box mt={4}>
                 <ExternalLink
+                  onClick={(): void => {
+                    track('Send Email Button')
+                  }}
                   asButton
                   noUnderline
                   target="_blank"
@@ -160,6 +166,9 @@ const LandingPage = () => {
                       asButton
                       noUnderline
                       buttonStyle="shareFacebook"
+                      onClick={(): void => {
+                        track('Share on Facebook')
+                      }}
                     >
                       Share on Facebook
                     </ExternalLink>
@@ -172,6 +181,9 @@ const LandingPage = () => {
                       asButton
                       noUnderline
                       buttonStyle="shareTwitter"
+                      onClick={(): void => {
+                        track('Share on Twitter')
+                      }}
                     >
                       Share on Twitter
                     </ExternalLink>
@@ -188,7 +200,12 @@ const LandingPage = () => {
               of people, we've collected the contact information of city
               officials from all over California, and even several major U.S
               cities. Want to contribute? Reach out at{' '}
-              <ExternalLink href="mailto:tips@speakupspeaknow.org">
+              <ExternalLink
+                onClick={(): void => {
+                  track('Wants to Contribute')
+                }}
+                href="mailto:tips@speakupspeaknow.org"
+              >
                 tips@speakupspeaknow.org
               </ExternalLink>
               .
@@ -197,7 +214,12 @@ const LandingPage = () => {
             <Text.Body color="textMediumGray">
               If your city doesn't have the contact info of your city officials
               inputted yet, please send an email to{' '}
-              <ExternalLink href="mailto:tips@speakupspeaknow.org">
+              <ExternalLink
+                onClick={(): void => {
+                  track('Requested Contact Info')
+                }}
+                href="mailto:tips@speakupspeaknow.org"
+              >
                 tips@speakupspeaknow.org
               </ExternalLink>
               .
