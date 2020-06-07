@@ -1,9 +1,9 @@
 steps:
   - name: node
-    entrypoint: npm
+    entrypoint: yarn
     args: ['install']
   - name: node
-    entrypoint: npm
+    entrypoint: yarn
     args: ['run', 'build']
   - name: gcr.io/cloud-builders/gsutil
     args:
