@@ -10,6 +10,7 @@ import { cityToEmails, getEmailsForCity } from 'src/data/cityData'
 import * as emailData from 'src/data/email'
 import { colors, typography } from 'src/styles'
 import { makeMailToLink } from 'src/utils/mailto'
+import Wave from 'src/components/SVG/Wave'
 
 interface CityOption {
   value: string
@@ -47,7 +48,7 @@ const LandingPage = () => {
       width="100%"
       overflowX="hidden"
       bg="black"
-      py={4}
+      py={0}
       display="flex"
       flexDirection="column"
       alignItems="stretch"
@@ -71,9 +72,10 @@ const LandingPage = () => {
           </Text.Heading>
 
           <Text.Body color="white" mb={3}>
-            It is unacceptable that for many cities, 1/3 to 1/2 of the budget is
-            allotted to the police when communities are in need of social safety
-            nets, now more than ever. We MUST hold our democratically elected
+            It is unacceptable that for many cities, <strong>1/3</strong> to{' '}
+            <strong>1/2</strong> of the budget is allotted to the police when
+            communities are in need of social safety nets, now more than ever.
+            We <strong>MUST</strong> hold our democratically elected
             representatives accountable and ensure that they have our best
             interests at heart. One way we can do that is by sending them emails
             demanding that they re-structure the budget: cutting funding for
@@ -167,6 +169,7 @@ const LandingPage = () => {
           </Box>
         </Box>
       </Box>
+      <Wave />
     </Box>
   )
 }
