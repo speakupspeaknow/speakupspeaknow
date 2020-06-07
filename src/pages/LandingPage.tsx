@@ -182,8 +182,8 @@ const LandingPage = () => {
           )}
 
           <Box mt={5} pt={3} borderTop={`1px solid ${colors.textGray}`}>
-            <Text.Body color="textMediumGray" mb={2}>
-              Speak up, Speak now is an intitative that empowers the people to
+            <Text.Body color="textGray" mb={2}>
+              Speak up, Speak now is an initiative that empowers the people to
               hold their city officials accountable. Thanks to the help of a LOT
               of people, we've collected the contact information of city
               officials from all over California, and even several major U.S
