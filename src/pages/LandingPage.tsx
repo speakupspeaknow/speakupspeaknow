@@ -11,6 +11,10 @@ import * as emailData from 'src/data/email'
 import { colors, typography } from 'src/styles'
 import { makeMailToLink } from 'src/utils/mailto'
 import Wave from 'src/components/SVG/Wave'
+import {
+  baseButtonStyles,
+  styleVariants,
+} from 'src/styles/components/buttonlike'
 import { FacebookShareButton, TwitterShareButton } from 'react-share'
 import { useAnalytics } from 'use-analytics'
 
@@ -131,7 +135,7 @@ const LandingPage = () => {
               <Box mt={4}>
                 <ExternalLink
                   onClick={(): void => {
-                    track('Send Email Button')
+                    track('Send Email')
                   }}
                   asButton
                   noUnderline
@@ -159,34 +163,30 @@ const LandingPage = () => {
                   `}
                 >
                   <FacebookShareButton
-                    style={{ outline: 'none' }}
+                    onClick={(): void => {
+                      track('Share Facebook')
+                    }}
+                    style={{
+                      outline: 'none',
+                      ...baseButtonStyles,
+                      ...styleVariants.shareFacebook,
+                    }}
                     url="https://www.speakupspeaknow.org"
                   >
-                    <ExternalLink
-                      asButton
-                      noUnderline
-                      buttonStyle="shareFacebook"
-                      onClick={(): void => {
-                        track('Share on Facebook')
-                      }}
-                    >
-                      Share on Facebook
-                    </ExternalLink>
+                    Share on Facebook
                   </FacebookShareButton>
                   <TwitterShareButton
-                    style={{ outline: 'none' }}
+                   onClick={(): void => {
+                      track('Share Twitter')
+                    }}
+                    style={{
+                      outline: 'none',
+                      ...baseButtonStyles,
+                      ...styleVariants.shareTwitter,
+                    }}
                     url="https://www.speakupspeaknow.org"
                   >
-                    <ExternalLink
-                      asButton
-                      noUnderline
-                      buttonStyle="shareTwitter"
-                      onClick={(): void => {
-                        track('Share on Twitter')
-                      }}
-                    >
-                      Share on Twitter
-                    </ExternalLink>
+                    Share on Twitter
                   </TwitterShareButton>
                 </Box>
               </Box>
@@ -201,10 +201,10 @@ const LandingPage = () => {
               officials from all over California, and even several major U.S
               cities. Want to contribute? Reach out at{' '}
               <ExternalLink
+                href="mailto:tips@speakupspeaknow.org"
                 onClick={(): void => {
                   track('Wants to Contribute')
                 }}
-                href="mailto:tips@speakupspeaknow.org"
               >
                 tips@speakupspeaknow.org
               </ExternalLink>
@@ -215,10 +215,10 @@ const LandingPage = () => {
               If your city doesn't have the contact info of your city officials
               inputted yet, please send an email to{' '}
               <ExternalLink
+                href="mailto:tips@speakupspeaknow.org"
                 onClick={(): void => {
                   track('Wants New City Added')
                 }}
-                href="mailto:tips@speakupspeaknow.org"
               >
                 tips@speakupspeaknow.org
               </ExternalLink>
