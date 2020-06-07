@@ -106,6 +106,23 @@ export const styleVariants = {
     color: colors.bgBeige,
   },
 
+  shareFacebook: {
+    borderWidth: '2px',
+    borderStyle: 'solid',
+    backgroundColor: colors.facebookBlue,
+    borderColor: colors.facebookBlue,
+    color: colors.bgBeige,
+    fontSize: '12px',
+  },
+  shareTwitter: {
+    borderWidth: '2px',
+    borderStyle: 'solid',
+    backgroundColor: colors.twitterBlue,
+    borderColor: colors.twitterBlue,
+    color: colors.bgBeige,
+    fontSize: '12px',
+  },
+
   plainButLightOnHover: {
     borderWidth: '2px',
     borderStyle: 'solid',

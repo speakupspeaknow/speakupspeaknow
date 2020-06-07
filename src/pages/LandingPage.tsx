@@ -11,6 +11,7 @@ import * as emailData from 'src/data/email'
 import { colors, typography } from 'src/styles'
 import { makeMailToLink } from 'src/utils/mailto'
 import Wave from 'src/components/SVG/Wave'
+import { FacebookShareButton, TwitterShareButton } from 'react-share'
 
 interface CityOption {
   value: string
@@ -142,11 +143,46 @@ const LandingPage = () => {
                   Send email to {selectedCity.label} officials
                 </ExternalLink>
               </Box>
+              <Box mt={4}>
+                <Box
+                  display="flex"
+                  css={css`
+                    & > *:not(:last-child) {
+                      margin-right: 10px;
+                    }
+                  `}
+                >
+                  <FacebookShareButton
+                    style={{ outline: 'none' }}
+                    url="https://www.speakupspeaknow.org"
+                  >
+                    <ExternalLink
+                      asButton
+                      noUnderline
+                      buttonStyle="shareFacebook"
+                    >
+                      Share on Facebook
+                    </ExternalLink>
+                  </FacebookShareButton>
+                  <TwitterShareButton
+                    style={{ outline: 'none' }}
+                    url="https://www.speakupspeaknow.org"
+                  >
+                    <ExternalLink
+                      asButton
+                      noUnderline
+                      buttonStyle="shareTwitter"
+                    >
+                      Share on Twitter
+                    </ExternalLink>
+                  </TwitterShareButton>
+                </Box>
+              </Box>
             </Box>
           )}
 
           <Box mt={5} pt={3} borderTop={`1px solid ${colors.textGray}`}>
-            <Text.Body color="textGray" mb={2}>
+            <Text.Body color="textMediumGray" mb={2}>
               Speak up, Speak now is an intitative that empowers the people to
               hold their city officials accountable. Thanks to the help of a LOT
               of people, we've collected the contact information of city
@@ -158,7 +194,7 @@ const LandingPage = () => {
               .
             </Text.Body>
 
-            <Text.Body color="textGray">
+            <Text.Body color="textMediumGray">
               If your city doesn't have the contact info of your city officials
               inputted yet, please send an email to{' '}
               <ExternalLink href="mailto:tips@speakupspeaknow.org">

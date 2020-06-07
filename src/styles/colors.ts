@@ -12,6 +12,9 @@ const colors = {
   white: '#FFFFFF',
   bostonBlue: '#3C98C0',
   validGreen: '#73A230',
+  facebookBlue: '#3b5998',
+  twitterBlue: '#1DA1F2',
 } as const
 
+Object.freeze(colors)
 export default colors

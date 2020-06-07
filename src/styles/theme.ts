@@ -13,4 +13,5 @@ const theme = {
   shadows: ['0px 0px 4px rgba(0, 0, 0, 0.25)'],
 }
 
+Object.freeze(theme)
 export default theme
