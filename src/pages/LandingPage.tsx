@@ -16,13 +16,14 @@ import {
   styleVariants,
 } from 'src/styles/components/buttonlike'
 import { FacebookShareButton, TwitterShareButton } from 'react-share'
+import { useAnalytics } from 'use-analytics'
 
 interface CityOption {
   value: string
   label: string
 }
 
-const cityOptions = Object.keys(cityToEmails).map((cityName) => ({
+const cityOptions = Object.keys(cityToEmails).map((cityName: string) => ({
   value: cityName,
   label: cityName,
 }))
@@ -46,6 +47,8 @@ const LandingPage = () => {
     },
     [setPersonName],
   )
+
+  const { track } = useAnalytics()
 
   return (
     <Box
@@ -131,6 +134,9 @@ const LandingPage = () => {
               </Text.SectionSubheader>
               <Box mt={4}>
                 <ExternalLink
+                  onClick={(): void => {
+                    track('Send Email')
+                  }}
                   asButton
                   noUnderline
                   target="_blank"
@@ -157,6 +163,9 @@ const LandingPage = () => {
                   `}
                 >
                   <FacebookShareButton
+                    onClick={(): void => {
+                      track('Share Facebook')
+                    }}
                     style={{
                       outline: 'none',
                       ...baseButtonStyles,
@@ -167,6 +176,9 @@ const LandingPage = () => {
                     Share on Facebook
                   </FacebookShareButton>
                   <TwitterShareButton
+                   onClick={(): void => {
+                      track('Share Twitter')
+                    }}
                     style={{
                       outline: 'none',
                       ...baseButtonStyles,
@@ -188,7 +200,12 @@ const LandingPage = () => {
               of people, we've collected the contact information of city
               officials from all over California, and even several major U.S
               cities. Want to contribute? Reach out at{' '}
-              <ExternalLink href="mailto:tips@speakupspeaknow.org">
+              <ExternalLink
+                href="mailto:tips@speakupspeaknow.org"
+                onClick={(): void => {
+                  track('Wants to Contribute')
+                }}
+              >
                 tips@speakupspeaknow.org
               </ExternalLink>
               .
@@ -197,7 +214,12 @@ const LandingPage = () => {
             <Text.Body color="textMediumGray">
               If your city doesn't have the contact info of your city officials
               inputted yet, please send an email to{' '}
-              <ExternalLink href="mailto:tips@speakupspeaknow.org">
+              <ExternalLink
+                href="mailto:tips@speakupspeaknow.org"
+                onClick={(): void => {
+                  track('Wants New City Added')
+                }}
+              >
                 tips@speakupspeaknow.org
               </ExternalLink>
               .

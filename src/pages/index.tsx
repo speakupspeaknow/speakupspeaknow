@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import ProtectedRoute from 'src/components/ProtectedRoute'
 import { AuthLevel } from 'src/config'
 import LandingPage from 'src/pages/LandingPage'
+import { useAnalytics } from 'use-analytics'
 
 interface PageType {
   name: string
@@ -22,11 +23,14 @@ export const pages: Array<PageType> = [
 ]
 
 export const PageRouter = () => {
+  const { page } = useAnalytics()
   return (
     <Router>
       <Switch>
-        {pages.map(({ name, requiredAuthLevel, ...rest }) =>
-          requiredAuthLevel == null ? (
+        {pages.map(({ name, requiredAuthLevel, ...rest }) => {
+          // when we add different routes we can think about how to best differentiate page visits
+          page()
+          return requiredAuthLevel == null ? (
             <Route key={name} {...rest} />
           ) : (
             <ProtectedRoute
@@ -34,8 +38,8 @@ export const PageRouter = () => {
               requiredAuthLevel={requiredAuthLevel}
               {...rest}
             />
-          ),
-        )}
+          )
+        })}
       </Switch>
     </Router>
   )
