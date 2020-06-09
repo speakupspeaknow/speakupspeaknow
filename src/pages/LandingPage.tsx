@@ -17,7 +17,6 @@ import {
 } from 'src/styles/components/buttonlike'
 import { FacebookShareButton, TwitterShareButton } from 'react-share'
 import { useAnalytics } from 'use-analytics'
-import { ReactTypeformEmbed } from 'react-typeform-embed'
 
 interface CityOption {
   value: string
@@ -34,10 +33,6 @@ const LandingPage = () => {
     null,
   )
   const [personName, setPersonName] = React.useState<string>('')
-
-  const [showNewCityRequestForm, setShowNewCityRequestForm] = React.useState<
-    boolean
-  >(false)
 
   const handleCityChange = React.useCallback(
     (selectedOption: any) => {
@@ -58,7 +53,7 @@ const LandingPage = () => {
   const emails =
     selectedCity !== null ? getEmailsForCity(selectedCity.value) : []
 
-  return !showNewCityRequestForm ? (
+  return (
     <Box
       minHeight="100vh"
       width="100%"
@@ -237,15 +232,15 @@ const LandingPage = () => {
               If your city doesn't have the contact info of your city officials
               inputted yet, please send an email to{' '}
               <ExternalLink
+                href="mailto:tips@speakupspeaknow.org"
                 onClick={() => {
-                  setShowNewCityRequestForm(true)
                   track('Wants New City Added', {
                     name: personName,
                     city: selectedCity,
                   })
                 }}
               >
-                here
+                tips@speakupspeaknow.org
               </ExternalLink>
               .
             </Text.Body>
@@ -254,18 +249,6 @@ const LandingPage = () => {
       </Box>
       <Wave />
     </Box>
-  ) : (
-    <ReactTypeformEmbed
-      popup
-      autoOpen={showNewCityRequestForm}
-      hideHeaders
-      hideFooter
-      buttonText="Go!"
-      url="https://monilpat.typeform.com/to/PnG4ON"
-      onSubmit={() => {
-        setShowNewCityRequestForm(false)
-      }}
-    />
   )
 }
 
