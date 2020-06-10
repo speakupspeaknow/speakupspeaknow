@@ -53,6 +53,13 @@ const LandingPage = () => {
   const emails =
     selectedCity !== null ? getEmailsForCity(selectedCity.value) : []
 
+  const socialMediaMessage = (platform: string) =>
+    `I just sent a pre-drafted email to my ${
+      selectedCity?.value
+    } officials demanding that they re-structure their budget to defund police and increase investment in our community instead. I was able to do so in less than a minute thanks to ${
+      platform === 'twitter' ? '@spkup_spknow' : 'Speak Up Speak Now'
+    }! Check it out at`
+
   return (
     <Box
       minHeight="100vh"
@@ -177,6 +184,7 @@ const LandingPage = () => {
                         city: selectedCity,
                       })
                     }}
+                    quote={socialMediaMessage('facebook')}
                     style={{
                       outline: 'none',
                       ...baseButtonStyles,
@@ -198,6 +206,7 @@ const LandingPage = () => {
                       ...baseButtonStyles,
                       ...styleVariants.shareTwitter,
                     }}
+                    title={socialMediaMessage('twitter')}
                     url="https://www.speakupspeaknow.org"
                   >
                     Share on Twitter
