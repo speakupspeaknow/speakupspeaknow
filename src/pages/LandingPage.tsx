@@ -23,7 +23,7 @@ interface CityOption {
   label: string
 }
 
-const cityOptions = Object.keys(cityToEmails).map((cityName: string) => ({
+const cityOptions = Object.keys(cityToEmails).map((cityName) => ({
   value: cityName,
   label: cityName,
 }))
@@ -49,6 +49,9 @@ const LandingPage = () => {
   )
 
   const { track } = useAnalytics()
+
+  const emails =
+    selectedCity !== null ? getEmailsForCity(selectedCity.value) : []
 
   return (
     <Box
@@ -134,15 +137,20 @@ const LandingPage = () => {
               </Text.SectionSubheader>
               <Box mt={4}>
                 <ExternalLink
-                  onClick={(): void => {
-                    track('Send Email')
+                  onClick={() => {
+                    track('Send Email', {
+                      name: personName,
+                      city: selectedCity,
+                      emailsSent: emails,
+                      emailCount: emails.length,
+                    })
                   }}
                   asButton
                   noUnderline
                   target="_blank"
                   buttonStyle="primary"
                   href={makeMailToLink({
-                    to: getEmailsForCity(selectedCity.value),
+                    to: emails,
                     subject: emailData.subject,
                     body: emailData.makeBody({
                       name: personName,
@@ -163,8 +171,11 @@ const LandingPage = () => {
                   `}
                 >
                   <FacebookShareButton
-                    onClick={(): void => {
-                      track('Share Facebook')
+                    onClick={() => {
+                      track('Share Facebook', {
+                        name: personName,
+                        city: selectedCity,
+                      })
                     }}
                     style={{
                       outline: 'none',
@@ -176,8 +187,11 @@ const LandingPage = () => {
                     Share on Facebook
                   </FacebookShareButton>
                   <TwitterShareButton
-                   onClick={(): void => {
-                      track('Share Twitter')
+                    onClick={() => {
+                      track('Share Twitter', {
+                        name: personName,
+                        city: selectedCity,
+                      })
                     }}
                     style={{
                       outline: 'none',
@@ -202,8 +216,11 @@ const LandingPage = () => {
               cities. Want to contribute? Reach out at{' '}
               <ExternalLink
                 href="mailto:tips@speakupspeaknow.org"
-                onClick={(): void => {
-                  track('Wants to Contribute')
+                onClick={() => {
+                  track('Wants to Contribute', {
+                    name: personName,
+                    city: selectedCity,
+                  })
                 }}
               >
                 tips@speakupspeaknow.org
@@ -216,8 +233,11 @@ const LandingPage = () => {
               inputted yet, please send an email to{' '}
               <ExternalLink
                 href="mailto:tips@speakupspeaknow.org"
-                onClick={(): void => {
-                  track('Wants New City Added')
+                onClick={() => {
+                  track('Wants New City Added', {
+                    name: personName,
+                    city: selectedCity,
+                  })
                 }}
               >
                 tips@speakupspeaknow.org
