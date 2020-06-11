@@ -239,9 +239,9 @@ const LandingPage = () => {
 
             <Text.Body color="textMediumGray">
               If your city doesn't have the contact info of your city officials
-              inputted yet, please send an email to{' '}
+              inputted yet, please let us know{' '}
               <ExternalLink
-                href="mailto:tips@speakupspeaknow.org"
+                href="/newcityrequest"
                 onClick={() => {
                   track('Wants New City Added', {
                     name: personName,
@@ -249,7 +249,7 @@ const LandingPage = () => {
                   })
                 }}
               >
-                tips@speakupspeaknow.org
+                here
               </ExternalLink>
               .
             </Text.Body>
