@@ -4,7 +4,6 @@ import ProtectedRoute from 'src/components/ProtectedRoute'
 import { AuthLevel } from 'src/config'
 import LandingPage from 'src/pages/LandingPage'
 import { useAnalytics } from 'use-analytics'
-import NewCityRequestPage from 'src/pages/NewCityRequestPage'
 
 interface PageType {
   name: string
@@ -21,12 +20,6 @@ export const pages: Array<PageType> = [
     path: '/',
     component: LandingPage,
   },
-  {
-    name: 'new city request form',
-    exact: true,
-    path: '/newcityrequest',
-    component: NewCityRequestPage,
-  },
 ]
 
 export const PageRouter = () => {
@@ -35,7 +28,8 @@ export const PageRouter = () => {
     <Router>
       <Switch>
         {pages.map(({ name, requiredAuthLevel, ...rest }) => {
-          page({ name })
+          // when we add different routes we can think about how to best differentiate page visits
+          page()
           return requiredAuthLevel == null ? (
             <Route key={name} {...rest} />
           ) : (
