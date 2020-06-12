@@ -22,7 +22,7 @@ export const pages: Array<PageType> = [
     component: LandingPage,
   },
   {
-    name: 'new city request form',
+    name: 'newCityRequest',
     exact: true,
     path: '/newcityrequest',
     component: NewCityRequestPage,

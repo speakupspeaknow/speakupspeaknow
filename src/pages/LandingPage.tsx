@@ -3,7 +3,7 @@ import * as React from 'react'
 import Select from 'react-select'
 import Box from 'src/components/Box'
 import * as Form from 'src/components/Form'
-import { ExternalLink } from 'src/components/Link'
+import { ExternalLink, InternalLink } from 'src/components/Link'
 import Navbar from 'src/components/Navbar'
 import * as Text from 'src/components/Text'
 import { cityToEmails, getEmailsForCity } from 'src/data/cityData'
@@ -240,8 +240,8 @@ const LandingPage = () => {
             <Text.Body color="textMediumGray">
               If your city doesn't have the contact info of your city officials
               inputted yet, please let us know{' '}
-              <ExternalLink
-                href="/newcityrequest"
+              <InternalLink
+                to="/newcityrequest"
                 onClick={() => {
                   track('Wants New City Added', {
                     name: personName,
@@ -250,7 +250,7 @@ const LandingPage = () => {
                 }}
               >
                 here
-              </ExternalLink>
+              </InternalLink>
               .
             </Text.Body>
           </Box>
