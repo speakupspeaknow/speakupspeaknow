@@ -313,20 +313,19 @@ const LandingPage = () => {
                 >
                   <Button
                     onClick={() => {
+                      copy(emails.join(','))
+                    }}
+                    color={theme.colors.facebookBlue}
+                  >
+                    Copy Email Addresses
+                  </Button>
+                  <Button
+                    onClick={() => {
                       copy(emailBody)
-                      setShowPreview(true)
                     }}
                     color={theme.colors.facebookBlue}
                   >
                     Copy Email
-                  </Button>
-                  <Button
-                    onClick={() => {
-                      setShowPreview(false)
-                    }}
-                    color={theme.colors.facebookBlue}
-                  >
-                    Close
                   </Button>
                 </Box>
               </Modal>
