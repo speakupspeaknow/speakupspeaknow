@@ -52,7 +52,7 @@ const LandingPage = () => {
     [setPersonName],
   )
 
-  const [showPreview, setShowPreview] = React.useState<boolean>(false)
+  const [showPreview, setShowPreview] = React.useState<boolean>(false);
 
   const { track } = useAnalytics()
 
@@ -61,18 +61,15 @@ const LandingPage = () => {
 
   const socialMediaMessage = (platform: string) =>
     `I just sent a pre-drafted email to my ${
-      selectedCity?.value
+    selectedCity?.value
     } officials demanding that they restructure their budget to defund police and increase investment in our community instead. I did so in less than a minute thanks to ${
-      platform === 'twitter' ? '@spkup_spknow' : 'Speak Up Speak Now'
+    platform === 'twitter' ? '@spkup_spknow' : 'Speak Up Speak Now'
     }! Check it out at${platform === 'facebook' ? ':' : ''}`
 
-  const emailBody =
-    selectedCity !== null
-      ? emailData.makeBody({
-          name: personName,
-          city: selectedCity.label,
-        })
-      : ''
+  const emailBody = selectedCity !== null ? emailData.makeBody({
+    name: personName,
+    city: selectedCity.label,
+  }) : ''
 
   return (
     <Box
@@ -163,11 +160,10 @@ const LandingPage = () => {
                     & > *:not(:last-child) {
                       margin-right: 10px;
                     }
-                  `}
-                >
+                  `}>
                   <Button
                     onClick={() => {
-                      setShowPreview(true)
+                      setShowPreview(true);
                       track('Preview Email', {
                         name: personName,
                         city: selectedCity,
@@ -175,7 +171,7 @@ const LandingPage = () => {
                     }}
                   >
                     Preview Email
-                  </Button>
+                </Button>
                   <ExternalLink
                     onClick={() => {
                       track('Send Email', {
@@ -196,7 +192,7 @@ const LandingPage = () => {
                     })}
                   >
                     Send email to {selectedCity.label} officials
-                  </ExternalLink>
+                </ExternalLink>
                 </Box>
               </Box>
               <Box mt={4}>
@@ -284,7 +280,8 @@ const LandingPage = () => {
               </InternalLink>
               .
             </Text.Body>
-            {selectedCity && (
+            {
+              selectedCity &&
               <Modal
                 allowCloseWithOutsideClick={false}
                 bg="transparent"
@@ -292,9 +289,9 @@ const LandingPage = () => {
                 onClose={() => setShowPreview(false)}
               >
                 <Text.SectionSubheader color="textMediumGray">
-                  {emailBody.split('\n').map((line: string) => {
+                  {emailBody.split("\n").map((line: string) => {
                     return (
-                      <Text.Body color="textMediumGray">
+                      <Text.Body color="textMediumGray" >
                         {line}
                         <br />
                       </Text.Body>
@@ -309,8 +306,7 @@ const LandingPage = () => {
                     & > *:not(:last-child) {
                       margin-right: 5px;
                     }
-                  `}
-                >
+                  `} >
                   <Button
                     onClick={() => {
                       copy(emailBody)
@@ -319,7 +315,7 @@ const LandingPage = () => {
                     color={theme.colors.facebookBlue}
                   >
                     Copy Email
-                  </Button>
+                </Button>
                   <Button
                     onClick={() => {
                       setShowPreview(false)
@@ -327,15 +323,15 @@ const LandingPage = () => {
                     color={theme.colors.facebookBlue}
                   >
                     Close
-                  </Button>
+                </Button>
                 </Box>
               </Modal>
-            )}
+            }
           </Box>
         </Box>
       </Box>
       <Wave />
-    </Box>
+    </Box >
   )
 }
 

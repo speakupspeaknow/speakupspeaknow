@@ -39,6 +39,7 @@ interface Props {
   confirmClose?: () => boolean
   actions?: Actions
   allowCloseWithOutsideClick?: boolean
+  bg?: string
 }
 
 const Modal = ({
@@ -50,6 +51,7 @@ const Modal = ({
   confirmClose = () => false,
   actions,
   allowCloseWithOutsideClick = true,
+  bg = rgba(colors.primaryTeal, 0.8),
 }: Props) => {
   const lastIsOpen = React.useRef(isOpen)
   const modalCardRef = React.useRef<HTMLDivElement>(null)
@@ -110,7 +112,7 @@ const Modal = ({
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      bg={rgba(colors.primaryTeal, 0.8)}
+      bg={bg}
       onClick={handleOutsideClick}
     >
       <Global
