@@ -17,6 +17,10 @@ import {
 } from 'src/styles/components/buttonlike'
 import { FacebookShareButton, TwitterShareButton } from 'react-share'
 import { useAnalytics } from 'use-analytics'
+import Button from 'src/components/Button'
+import Modal from 'src/components/Modal'
+import theme from 'src/styles/theme'
+import copy from 'copy-to-clipboard'
 
 interface CityOption {
   value: string
@@ -48,6 +52,8 @@ const LandingPage = () => {
     [setPersonName],
   )
 
+  const [showPreview, setShowPreview] = React.useState<boolean>(false)
+
   const { track } = useAnalytics()
 
   const emails =
@@ -59,6 +65,14 @@ const LandingPage = () => {
     } officials demanding that they restructure their budget to defund police and increase investment in our community instead. I did so in less than a minute thanks to ${
       platform === 'twitter' ? '@spkup_spknow' : 'Speak Up Speak Now'
     }! Check it out at${platform === 'facebook' ? ':' : ''}`
+
+  const emailBody =
+    selectedCity !== null
+      ? emailData.makeBody({
+          name: personName,
+          city: selectedCity.label,
+        })
+      : ''
 
   return (
     <Box
@@ -143,30 +157,47 @@ const LandingPage = () => {
                 and I've had enough. It's time to demand change.
               </Text.SectionSubheader>
               <Box mt={4}>
-                <ExternalLink
-                  onClick={() => {
-                    track('Send Email', {
-                      name: personName,
-                      city: selectedCity,
-                      emailsSent: emails,
-                      emailCount: emails.length,
-                    })
-                  }}
-                  asButton
-                  noUnderline
-                  target="_blank"
-                  buttonStyle="primary"
-                  href={makeMailToLink({
-                    to: emails,
-                    subject: emailData.subject,
-                    body: emailData.makeBody({
-                      name: personName,
-                      city: selectedCity.label,
-                    }),
-                  })}
+                <Box
+                  display="flex"
+                  css={css`
+                    & > *:not(:last-child) {
+                      margin-right: 10px;
+                    }
+                  `}
                 >
-                  Send email to {selectedCity.label} officials
-                </ExternalLink>
+                  <Button
+                    onClick={() => {
+                      setShowPreview(true)
+                      track('Preview Email', {
+                        name: personName,
+                        city: selectedCity,
+                      })
+                    }}
+                  >
+                    Preview Email
+                  </Button>
+                  <ExternalLink
+                    onClick={() => {
+                      track('Send Email', {
+                        name: personName,
+                        city: selectedCity,
+                        emailsSent: emails,
+                        emailCount: emails.length,
+                      })
+                    }}
+                    asButton
+                    noUnderline
+                    target="_blank"
+                    buttonStyle="primary"
+                    href={makeMailToLink({
+                      to: emails,
+                      subject: emailData.subject,
+                      body: emailBody,
+                    })}
+                  >
+                    Send email to {selectedCity.label} officials
+                  </ExternalLink>
+                </Box>
               </Box>
               <Box mt={4}>
                 <Box
@@ -253,6 +284,53 @@ const LandingPage = () => {
               </InternalLink>
               .
             </Text.Body>
+            {selectedCity && (
+              <Modal
+                allowCloseWithOutsideClick={false}
+                bg="transparent"
+                isOpen={showPreview}
+                onClose={() => setShowPreview(false)}
+              >
+                <Text.SectionSubheader color="textMediumGray">
+                  {emailBody.split('\n').map((line: string) => {
+                    return (
+                      <Text.Body color="textMediumGray">
+                        {line}
+                        <br />
+                      </Text.Body>
+                    )
+                  })}
+                </Text.SectionSubheader>
+                <Box
+                  display="flex"
+                  flexDirection="row"
+                  justifyContent="flex-end"
+                  css={css`
+                    & > *:not(:last-child) {
+                      margin-right: 5px;
+                    }
+                  `}
+                >
+                  <Button
+                    onClick={() => {
+                      copy(emailBody)
+                      setShowPreview(true)
+                    }}
+                    color={theme.colors.facebookBlue}
+                  >
+                    Copy Email
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      setShowPreview(false)
+                    }}
+                    color={theme.colors.facebookBlue}
+                  >
+                    Close
+                  </Button>
+                </Box>
+              </Modal>
+            )}
           </Box>
         </Box>
       </Box>
