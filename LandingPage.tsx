@@ -52,7 +52,7 @@ const LandingPage = () => {
     [setPersonName],
   )
 
-  const [showPreview, setShowPreview] = React.useState<boolean>(false);
+  const [showPreview, setShowPreview] = React.useState<boolean>(false)
 
   const { track } = useAnalytics()
 
@@ -66,10 +66,13 @@ const LandingPage = () => {
     platform === 'twitter' ? '@spkup_spknow' : 'Speak Up Speak Now'
     }! Check it out at${platform === 'facebook' ? ':' : ''}`
 
-  const emailBody = selectedCity !== null ? emailData.makeBody({
-    name: personName,
-    city: selectedCity.label,
-  }) : ''
+  const emailBody =
+    selectedCity !== null
+      ? emailData.makeBody({
+        name: personName,
+        city: selectedCity.label,
+      })
+      : ''
 
   return (
     <Box
@@ -160,10 +163,11 @@ const LandingPage = () => {
                     & > *:not(:last-child) {
                       margin-right: 10px;
                     }
-                  `}>
+                  `}
+                >
                   <Button
                     onClick={() => {
-                      setShowPreview(true);
+                      setShowPreview(true)
                       track('Preview Email', {
                         name: personName,
                         city: selectedCity,
@@ -171,7 +175,7 @@ const LandingPage = () => {
                     }}
                   >
                     Preview Email
-                </Button>
+                  </Button>
                   <ExternalLink
                     onClick={() => {
                       track('Send Email', {
@@ -192,7 +196,7 @@ const LandingPage = () => {
                     })}
                   >
                     Send email to {selectedCity.label} officials
-                </ExternalLink>
+                  </ExternalLink>
                 </Box>
               </Box>
               <Box mt={4}>
@@ -249,9 +253,9 @@ const LandingPage = () => {
               hold their city officials accountable. Thanks to the help of a LOT
               of people, we've collected the contact information of city
               officials from all over California, and even several major U.S
-              cities. Want to contribute? Reach out at{' '}
-              <ExternalLink
-                href="mailto:tips@speakupspeaknow.org"
+              cities. Want to get involved? Please let us know {' '}
+              <InternalLink
+                to="/getinvolved"
                 onClick={() => {
                   track('Wants to Contribute', {
                     name: personName,
@@ -259,8 +263,8 @@ const LandingPage = () => {
                   })
                 }}
               >
-                tips@speakupspeaknow.org
-              </ExternalLink>
+                here
+              </InternalLink>
               .
             </Text.Body>
 
@@ -280,8 +284,7 @@ const LandingPage = () => {
               </InternalLink>
               .
             </Text.Body>
-            {
-              selectedCity &&
+            {selectedCity && (
               <Modal
                 allowCloseWithOutsideClick={false}
                 bg="transparent"
@@ -289,9 +292,9 @@ const LandingPage = () => {
                 onClose={() => setShowPreview(false)}
               >
                 <Text.SectionSubheader color="textMediumGray">
-                  {emailBody.split("\n").map((line: string) => {
+                  {emailBody.split('\n').map((line: string) => {
                     return (
-                      <Text.Body color="textMediumGray" >
+                      <Text.Body color="textMediumGray">
                         {line}
                         <br />
                       </Text.Body>
@@ -306,32 +309,32 @@ const LandingPage = () => {
                     & > *:not(:last-child) {
                       margin-right: 5px;
                     }
-                  `} >
+                  `}
+                >
+                  <Button
+                    onClick={() => {
+                      copy(emails.join(','))
+                    }}
+                    color={theme.colors.facebookBlue}
+                  >
+                    Copy Email Addresses
+                  </Button>
                   <Button
                     onClick={() => {
                       copy(emailBody)
-                      setShowPreview(true)
                     }}
                     color={theme.colors.facebookBlue}
                   >
                     Copy Email
-                </Button>
-                  <Button
-                    onClick={() => {
-                      setShowPreview(false)
-                    }}
-                    color={theme.colors.facebookBlue}
-                  >
-                    Close
-                </Button>
+                  </Button>
                 </Box>
               </Modal>
-            }
+            )}
           </Box>
         </Box>
       </Box>
       <Wave />
-    </Box >
+    </Box>
   )
 }
 
