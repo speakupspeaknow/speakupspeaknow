@@ -253,9 +253,9 @@ const LandingPage = () => {
               hold their city officials accountable. Thanks to the help of a LOT
               of people, we've collected the contact information of city
               officials from all over California, and even several major U.S
-              cities. Want to contribute? Reach out at{' '}
-              <ExternalLink
-                href="mailto:tips@speakupspeaknow.org"
+              cities. Want to get involved? Please let us know{' '}
+              <InternalLink
+                to="/getinvolved"
                 onClick={() => {
                   track('Wants to Contribute', {
                     name: personName,
@@ -263,8 +263,8 @@ const LandingPage = () => {
                   })
                 }}
               >
-                tips@speakupspeaknow.org
-              </ExternalLink>
+                here
+              </InternalLink>
               .
             </Text.Body>
 

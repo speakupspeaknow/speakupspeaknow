@@ -2,7 +2,10 @@ import * as React from 'react'
 import { ReactTypeformEmbed } from 'react-typeform-embed'
 import { Redirect } from 'react-router-dom'
 
-const NewCityRequestPage = () => {
+interface Props {
+  url: string
+}
+const EmbeddedTypeform = ({ url }: Props) => {
   return (
     <React.Fragment>
       <ReactTypeformEmbed
@@ -12,11 +15,11 @@ const NewCityRequestPage = () => {
         hideHeaders
         hideFooter
         buttonText="Go!"
-        url="https://monilpat.typeform.com/to/PnG4ON"
+        url={url}
       />
       <Redirect to="/" />
     </React.Fragment>
   )
 }
 
-export default NewCityRequestPage
+export default EmbeddedTypeform
