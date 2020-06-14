@@ -4,7 +4,7 @@ import ProtectedRoute from 'src/components/ProtectedRoute'
 import { AuthLevel } from 'src/config'
 import LandingPage from 'src/pages/LandingPage'
 import { useAnalytics } from 'use-analytics'
-import NewCityRequestPage from 'src/pages/NewCityRequestPage'
+import EmbeddedTypeform from 'src/pages/EmbeddedTypeform'
 
 interface PageType {
   name: string
@@ -25,7 +25,13 @@ export const pages: Array<PageType> = [
     name: 'newCityRequest',
     exact: true,
     path: '/newcityrequest',
-    component: NewCityRequestPage,
+    component: () => <EmbeddedTypeform url="https://monilpat.typeform.com/to/PnG4ON" />,
+  },
+  {
+    name: 'getInvolved',
+    exact: true,
+    path: '/getinvolved',
+    component: () => <EmbeddedTypeform url="https://monilpat.typeform.com/to/Y0h31y" />,
   },
 ]
 
@@ -35,16 +41,16 @@ export const PageRouter = () => {
     <Router>
       <Switch>
         {pages.map(({ name, requiredAuthLevel, ...rest }) => {
-          page({ name })
+          page({ name, })
           return requiredAuthLevel == null ? (
             <Route key={name} {...rest} />
           ) : (
-            <ProtectedRoute
-              key={name}
-              requiredAuthLevel={requiredAuthLevel}
-              {...rest}
-            />
-          )
+              <ProtectedRoute
+                key={name}
+                requiredAuthLevel={requiredAuthLevel}
+                {...rest}
+              />
+            )
         })}
       </Switch>
     </Router>
