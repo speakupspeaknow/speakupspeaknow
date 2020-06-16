@@ -116,7 +116,7 @@ const LandingPage = () => {
 
           <Text.Body color="white" mb={3}>
             All you need to do is select your city and enter your name below for
-            a pre-drafted email to send to your city’s officials.
+            a pre-drafted email to send to your city’s officials. NOTE: We add a randomized Email ID in the subject and body of the email to help beat email filters.
           </Text.Body>
 
           <Text.SectionSubheader color="white">I live in</Text.SectionSubheader>
