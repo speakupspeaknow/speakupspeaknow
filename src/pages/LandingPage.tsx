@@ -116,7 +116,9 @@ const LandingPage = () => {
 
           <Text.Body color="white" mb={3}>
             All you need to do is select your city and enter your name below for
-            a pre-drafted email to send to your city’s officials. NOTE: We add a randomized Email ID in the subject and body of the email to help beat email filters.
+            a pre-drafted email to send to your city’s officials. NOTE: We add a
+            randomized Email ID in the subject and body of the email to help
+            beat email filters.
           </Text.Body>
 
           <Text.SectionSubheader color="white">I live in</Text.SectionSubheader>
@@ -252,8 +254,8 @@ const LandingPage = () => {
               Speak up, Speak now is an initiative that empowers the people to
               hold their city officials accountable. Thanks to the help of a LOT
               of people, we've collected the contact information of city
-              officials from all over California, and even several major U.S
-              cities. Want to get involved? Please let us know{' '}
+              officials from all over the US ({cityOptions.length} cities and
+              counting). Want to get involved? Please let us know{' '}
               <InternalLink
                 to="/getinvolved"
                 onClick={() => {
