@@ -17,25 +17,27 @@ export interface BodyOptions {
 }
 
 export const makeBody = (opts: BodyOptions) =>
-  `Hello, 
+  `Hello,
 
-My name is ${opts.name}. I am a resident of ${
+My name is ${opts.name} from ${
     opts.city
-  } and I am emailing to demand the restructuring of our city budget, so as to prioritize more social services for our community, and to drastically minimize spending on Police. It is unconscionable that 1/3 to 1/2 of the city’s budget is going to the police department. 
+  }. I am emailing to demand the restructuring of our city budget, to prioritize social services in community and to drastically minimize spending on Police. It is unacceptable that such a large portion of the city’s budget is going to the police department.
 
-This does not align with the values that I have as your constituent and I demand that you and other city officials work together to draft and approve a budget that diverts funds from the police department and reallocates them directly to benefit those in need. 
+This level of police funding does not align with my values, and reflects poorly on our community. I implore that you and other city officials draft and approve a budget that diverts funds from the police department and reallocates more to those in need.  
 
-Defunding the police and restructuring the budget is an absolute necessity now more than ever. Police perpetuate a pattern of excessive violence and force, especially directed towards Black People and their communities. The police refuse to hold their own accountable and this is unacceptable. 
+Defunding the police and restructuring the budget is a necessity – now more than ever. Across the U.S., police perpetuate a pattern of excessive violence and force, especially directed toward black people and communities. Meanwhile, departments and officers refuse to hold their own accountable. This is unacceptable.
 
-We are in the middle of a global pandemic that has killed 100,000 Americans and more than 40 million people have filed for unemployment. Healthcare workers are without proper equipment and essential workers are not being fairly compensated or protected for the great work they do. We don’t need more police, we need more social safety nets. Funds intended for police would be better off being sorted to initiatives that 
+We are in the middle of a global pandemic that has killed more than 115,000 Americans, a disproportionate number of which were people of color. Over 40 million have filed for unemployment. Healthcare workers are without proper equipment, and essential workers are not fairly compensated or protected. We don’t need more police; we need more social safety nets. Funds intended for police would be better served by  contributing to initiatives that:
 
-Enrich our public schools and students
+Enrich programs that invest in opportunity for people of color
 Provide more affordable housing and mental health care initiatives
+Widen access to COVID-19 tests and resources
 Protect and bolster our parks
 Support small businesses struggling due to COVID-19
-Provide cheaper and cleaner modes of public transportation 
+Provide cheaper and cleaner modes of public transportation
 
-Our nation is grieving the deaths of Black Americans that were murdered at the hands of police officers who have yet to be held accountable. While the police department has more funding than it knows what to do with, we have communities who desperately need funding and every day they don't receive it their quality of life worsens. Thousands have died who did not need to. You have the ability to change this, so do it. 
+Our nation is grieving the deaths of black Americans who were murdered at the hands of police. Many officers are not being held accountable. While the police department is busy buying weaponry and armored vehicles, we have communities that desperately need funding. Every day they don't receive it, their quality of life worsens. Thousands have died unnecessarily. You have the ability to change this. 
+Speak up for the underserved and less powerful. The moment is now, I sincerely hope you are listening. 
 
 Email ID: ${makeid(10)}
 
