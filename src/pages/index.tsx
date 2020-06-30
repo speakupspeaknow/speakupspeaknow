@@ -5,6 +5,7 @@ import { AuthLevel } from 'src/config'
 import LandingPage from 'src/pages/LandingPage'
 import { useAnalytics } from 'use-analytics'
 import EmbeddedTypeform from 'src/pages/EmbeddedTypeform'
+import SJEmail2 from 'src/pages/SJEmail2'
 
 interface PageType {
   name: string
@@ -20,6 +21,12 @@ export const pages: Array<PageType> = [
     exact: true,
     path: '/',
     component: LandingPage,
+  },
+  {
+    name: 'SJEmail2',
+    exact: true,
+    path: '/j4gjj',
+    component: SJEmail2,
   },
   {
     name: 'newCityRequest',
