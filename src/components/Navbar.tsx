@@ -2,7 +2,7 @@ import { css } from '@emotion/core'
 import * as React from 'react'
 import Box from 'src/components/Box'
 import Icon from 'src/components/Icon'
-import { ExternalLink } from 'src/components/Link'
+import { InternalLink, ExternalLink } from 'src/components/Link'
 import Logo from 'src/components/Logo'
 import { colors } from 'src/styles'
 
@@ -18,7 +18,9 @@ const Navbar = (props: Props) => (
     alignItems="center"
     justifyContent="space-between"
   >
-    <Logo />
+    <InternalLink to="/">
+      <Logo />
+    </InternalLink>
     <Box
       display="flex"
       css={css`

@@ -1,13 +1,8 @@
-import { css } from '@emotion/core'
 import * as React from 'react'
 import Box from 'src/components/Box'
-import * as Form from 'src/components/Form'
 import { ExternalLink } from 'src/components/Link'
 import Navbar from 'src/components/Navbar'
 import * as Text from 'src/components/Text'
-import { cityToEmails, getEmailsForCity } from 'src/data/cityData'
-import * as emailData from 'src/data/email'
-import { colors, typography } from 'src/styles'
 import { makeMailToLink } from 'src/utils/mailto'
 
 const sjEmailBody = `Hello, 
@@ -33,7 +28,7 @@ const SJEmail2 = () => {
       width="100%"
       overflowX="hidden"
       bg="black"
-      py={4}
+      py={0}
       display="flex"
       flexDirection="column"
       alignItems="stretch"
