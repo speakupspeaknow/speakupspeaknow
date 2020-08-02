@@ -1,0 +1,18 @@
+steps:
+  - name: node
+    entrypoint: yarn
+    args: ['install']
+  - name: node
+    entrypoint: yarn
+    args: ['run', 'build']
+  - name: gcr.io/cloud-builders/gsutil
+    args:
+      [
+        '-m',
+        'rsync',
+        '-r',
+        '-c',
+        '-d',
+        './build',
+        'gs://www.speakupspeaknow.org',
+      ]
