@@ -17,10 +17,7 @@ const textStyles: Record<string, any> = {
     lineHeight: 1.33,
     fontFamily: fontFamilies.lato,
     color: colors.textGray,
-<<<<<<< HEAD
     textAlign: "center"
-=======
->>>>>>> c1baf29ab1bf5821b9e70b752ba76f17f061a8ca
   },
   pageHeader: {
     fontWeight: 400,
@@ -49,10 +46,6 @@ const textStyles: Record<string, any> = {
     fontFamily: fontFamilies.rubik,
     fontWeight: 400,
     color: colors.textGray,
-<<<<<<< HEAD
-
-=======
->>>>>>> c1baf29ab1bf5821b9e70b752ba76f17f061a8ca
   },
   bodyTertiary: {
     fontSize: [12, 12, 12, 12],

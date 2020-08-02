@@ -6,10 +6,7 @@ import LandingPage from 'src/pages/LandingPage'
 import { useAnalytics } from 'use-analytics'
 import EmbeddedTypeform from 'src/pages/EmbeddedTypeform'
 import SJEmail2 from 'src/pages/SJEmail2'
-<<<<<<< HEAD
 import CityBudget2 from 'src/pages/CityBudget2'
-=======
->>>>>>> c1baf29ab1bf5821b9e70b752ba76f17f061a8ca
 
 interface PageType {
   name: string
@@ -27,15 +24,12 @@ export const pages: Array<PageType> = [
     component: LandingPage,
   },
   {
-<<<<<<< HEAD
     name: 'CityBudget2',
     exact: true,
     path: '/cb2',
     component: CityBudget2
   },
   {
-=======
->>>>>>> c1baf29ab1bf5821b9e70b752ba76f17f061a8ca
     name: 'SJEmail2',
     exact: true,
     path: '/j4gjj',
@@ -69,21 +63,12 @@ export const PageRouter = () => {
           return requiredAuthLevel == null ? (
             <Route key={name} {...rest} />
           ) : (
-<<<<<<< HEAD
               <ProtectedRoute
                 key={name}
                 requiredAuthLevel={requiredAuthLevel}
                 {...rest}
               />
             )
-=======
-            <ProtectedRoute
-              key={name}
-              requiredAuthLevel={requiredAuthLevel}
-              {...rest}
-            />
-          )
->>>>>>> c1baf29ab1bf5821b9e70b752ba76f17f061a8ca
         })}
       </Switch>
     </Router>
