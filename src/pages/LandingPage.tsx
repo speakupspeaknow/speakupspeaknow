@@ -61,17 +61,29 @@ const LandingPage = () => {
 
   const socialMediaMessage = (platform: string) =>
     `I just sent a pre-drafted email to my ${
+<<<<<<< HEAD
     selectedCity?.value
     } officials demanding that they restructure their budget to defund police and increase investment in our community instead. I did so in less than a minute thanks to ${
     platform === 'twitter' ? '@spkup_spknow' : 'Speak Up Speak Now'
+=======
+      selectedCity?.value
+    } officials demanding that they restructure their budget to defund police and increase investment in our community instead. I did so in less than a minute thanks to ${
+      platform === 'twitter' ? '@spkup_spknow' : 'Speak Up Speak Now'
+>>>>>>> c1baf29ab1bf5821b9e70b752ba76f17f061a8ca
     }! Check it out at${platform === 'facebook' ? ':' : ''}`
 
   const emailBody =
     selectedCity !== null
       ? emailData.makeBody({
+<<<<<<< HEAD
         name: personName,
         city: selectedCity.label,
       })
+=======
+          name: personName,
+          city: selectedCity.label,
+        })
+>>>>>>> c1baf29ab1bf5821b9e70b752ba76f17f061a8ca
       : ''
 
   return (
