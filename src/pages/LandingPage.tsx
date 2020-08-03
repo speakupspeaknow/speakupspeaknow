@@ -61,17 +61,17 @@ const LandingPage = () => {
 
   const socialMediaMessage = (platform: string) =>
     `I just sent a pre-drafted email to my ${
-      selectedCity?.value
+    selectedCity?.value
     } officials demanding that they restructure their budget to defund police and increase investment in our community instead. I did so in less than a minute thanks to ${
-      platform === 'twitter' ? '@spkup_spknow' : 'Speak Up Speak Now'
+    platform === 'twitter' ? '@spkup_spknow' : 'Speak Up Speak Now'
     }! Check it out at${platform === 'facebook' ? ':' : ''}`
 
   const emailBody =
     selectedCity !== null
       ? emailData.makeBody({
-          name: personName,
-          city: selectedCity.label,
-        })
+        name: personName,
+        city: selectedCity.label,
+      })
       : ''
 
   return (

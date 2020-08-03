@@ -17,6 +17,7 @@ const textStyles: Record<string, any> = {
     lineHeight: 1.33,
     fontFamily: fontFamilies.lato,
     color: colors.textGray,
+    textAlign: "center"
   },
   pageHeader: {
     fontWeight: 400,
