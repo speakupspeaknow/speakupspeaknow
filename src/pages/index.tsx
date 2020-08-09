@@ -9,6 +9,7 @@ import SJEmail2 from 'src/pages/SJEmail2'
 import CityBudget2 from 'src/pages/CityBudget2'
 import Resources from 'src/pages/Resources'
 
+
 interface PageType {
   name: string
   path: string
@@ -37,6 +38,7 @@ export const pages: Array<PageType> = [
     component: Resources,
   },
   {
+
     name: 'SJEmail2',
     exact: true,
     path: '/j4gjj',
