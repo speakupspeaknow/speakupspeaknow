@@ -5,8 +5,9 @@ import Icon from 'src/components/Icon'
 import { InternalLink, ExternalLink } from 'src/components/Link'
 import Logo from 'src/components/Logo'
 import { colors } from 'src/styles'
+import * as Text from 'src/components/Text'
 
-interface Props {}
+interface Props { }
 
 const Navbar = (props: Props) => (
   <Box
@@ -18,8 +19,18 @@ const Navbar = (props: Props) => (
     alignItems="center"
     justifyContent="space-between"
   >
+
     <InternalLink to="/">
       <Logo />
+    </InternalLink>
+    <InternalLink to="/">
+      <Text.SectionSubheader color="white">Defund Police</Text.SectionSubheader>
+    </InternalLink>
+    <InternalLink to="/cb2">
+      <Text.SectionSubheader color="white">Community Investment</Text.SectionSubheader>
+    </InternalLink>
+    <InternalLink to="/resources">
+      <Text.SectionSubheader color="white">Resources</Text.SectionSubheader>
     </InternalLink>
     <Box
       display="flex"

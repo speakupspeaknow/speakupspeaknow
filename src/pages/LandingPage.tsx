@@ -100,7 +100,7 @@ const LandingPage = () => {
           flexDirection="column"
         >
           <Text.Heading color="white" fontWeight={700} mb={3}>
-            Let's hold our elected officials accountable.
+            Let's hold police and elected officials accountable.
           </Text.Heading>
 
           <Text.Body color="white" mb={3}>
