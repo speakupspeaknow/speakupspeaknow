@@ -8,7 +8,8 @@ import { colors } from 'src/styles'
 import * as Text from 'src/components/Text'
 import { rgba } from 'polished'
 
-interface Props {}
+
+interface Props { }
 
 const bp = 'md'
 
@@ -22,6 +23,7 @@ const Navbar = (props: Props) => (
     alignItems="center"
     justifyContent="space-between"
   >
+
     <Box
       p={35}
       bg="transparent"
@@ -54,6 +56,7 @@ const Navbar = (props: Props) => (
         </InternalLink>
       </Box>
     </Box>
+
     <Box
       display="flex"
       css={css`

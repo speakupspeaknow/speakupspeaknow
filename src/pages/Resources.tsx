@@ -2,9 +2,11 @@ import * as React from 'react'
 import Box from 'src/components/Box'
 import { InternalLink } from 'src/components/Link'
 import Navbar2 from 'src/components/Navbar2'
+
 import * as Text from 'src/components/Text'
 import Wave from 'src/components/SVG/Wave'
 import { colors } from 'src/styles'
+
 
 const Resources = () => {
   return (
@@ -48,5 +50,6 @@ const Resources = () => {
       <Wave></Wave>
     </Box>
   )
+
 }
 export default Resources
