@@ -15,6 +15,8 @@ import {
   styleVariants,
 } from 'src/styles/components/buttonlike'
 // import { useAnalytics } from 'use-analytics'
+// import * as Recharts from 'recharts'
+import Graph from 'src/components/Graph'
 
 interface CityOption {
   value: string
@@ -208,7 +210,7 @@ const optionCities2 = [
   label: cityName,
 }))
 
-const CityBudget2 = () => {
+const PieCharts = () => {
   const [selectedCity, setSelectedCity] = React.useState<CityOption | null>(
     null,
   )
@@ -259,58 +261,13 @@ const CityBudget2 = () => {
           flexDirection="column"
         >
           <Text.Heading text-a="s" color="white" fontWeight={700} mb={3}>
-            Re-imagine your city budget.
+            Pie chart
           </Text.Heading>
 
           <Text.SectionSubheader color="white" mb={3}>
-            Select your city below and see what it would look like if Police
-            were defunded by just <strong>1/2</strong> and the appropriated
-            funds were alloted like so:
+            Select your city below and see what police pie chart looks like
           </Text.SectionSubheader>
-          <ul
-            css={css`
-              color: white;
-              text-align: center;
-            `}
-          >
-            <Text.Body color="white" mb={3}>
-              <strong>50% - Basic Needs </strong>{' '}
-            </Text.Body>
-            <img
-              width="10%"
-              alt="Basic Needs Icon: little heart over a house"
-              src={'./bni.png'}
-            />{' '}
-            <Text.Body color="white" mb={3}>
-              Housing, Food, Healthcare and Job Training
-            </Text.Body>
-            <Text.Body color="white" mb={3}>
-              <strong>20% - Public Infrastructure </strong>
-            </Text.Body>
-            <div>
-              <img
-                width="10%"
-                alt="Public Infrastructure Icon: big building "
-                src={'./pii.png'}
-              />{' '}
-              <Text.Body color="white" mb={3}>
-                Transportation, Libraries, and Parks
-              </Text.Body>{' '}
-            </div>
-            <Text.Body color="white" mb={3}>
-              <strong>30% - New Community Safety Measures </strong>
-            </Text.Body>
-            <div>
-              <img
-                width="10%"
-                alt="New Community Safety Measures Icon: two people facing each other"
-                src={'./rcsi.png'}
-              />{' '}
-              <Text.Body color="white" mb={3}>
-                Community and Rehabilitation Oriented Programs{' '}
-              </Text.Body>{' '}
-            </div>
-          </ul>
+          <div></div>
 
           <Select
             css={css(typography.textStyles.body)}
@@ -343,17 +300,16 @@ const CityBudget2 = () => {
                   }
                 `}
               >
-                <a href={`./CityInfographics/${cityPath}.png`} download>
-                  <Button
-                  // onClick={() => {
-                  //     track('Download Infographic', {
+                {/* <a href={`./CityInfographics/${cityPath}.png`} download>
+                                <Button
+                                // onClick={() => {
+                                //     track('Download Infographic', {
 
-                  //     })
-                  // }}
-                  >
-                    Download
-                  </Button>
-                </a>
+
+                                //     })
+                                // }}
+                                >Download</Button>
+                            </a> */}
 
                 <FacebookShareButton
                   // onClick={() => {
@@ -407,4 +363,4 @@ const CityBudget2 = () => {
   )
 }
 
-export default CityBudget2
+export default PieCharts

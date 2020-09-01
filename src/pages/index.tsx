@@ -8,6 +8,7 @@ import EmbeddedTypeform from 'src/pages/EmbeddedTypeform'
 import SJEmail2 from 'src/pages/SJEmail2'
 import CityBudget2 from 'src/pages/CityBudget2'
 import Resources from 'src/pages/Resources'
+import PieCharts from 'src/pages/PieCharts'
 
 interface PageType {
   name: string
@@ -28,13 +29,19 @@ export const pages: Array<PageType> = [
     name: 'CityBudget2',
     exact: true,
     path: '/cb2',
-    component: CityBudget2
+    component: CityBudget2,
   },
   {
     name: 'resources',
     exact: true,
     path: '/resources',
     component: Resources,
+  },
+  {
+    name: 'PieCharts',
+    exact: true,
+    path: '/pc',
+    component: PieCharts,
   },
   {
     name: 'SJEmail2',
@@ -70,12 +77,12 @@ export const PageRouter = () => {
           return requiredAuthLevel == null ? (
             <Route key={name} {...rest} />
           ) : (
-              <ProtectedRoute
-                key={name}
-                requiredAuthLevel={requiredAuthLevel}
-                {...rest}
-              />
-            )
+            <ProtectedRoute
+              key={name}
+              requiredAuthLevel={requiredAuthLevel}
+              {...rest}
+            />
+          )
         })}
       </Switch>
     </Router>
