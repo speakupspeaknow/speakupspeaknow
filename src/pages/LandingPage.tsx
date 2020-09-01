@@ -4,7 +4,7 @@ import Select from 'react-select'
 import Box from 'src/components/Box'
 import * as Form from 'src/components/Form'
 import { ExternalLink, InternalLink } from 'src/components/Link'
-import Navbar from 'src/components/Navbar'
+import Navbar2 from 'src/components/Navbar2'
 import * as Text from 'src/components/Text'
 import { cityToEmails, getEmailsForCity } from 'src/data/cityData'
 import * as emailData from 'src/data/email'
@@ -61,17 +61,17 @@ const LandingPage = () => {
 
   const socialMediaMessage = (platform: string) =>
     `I just sent a pre-drafted email to my ${
-    selectedCity?.value
+      selectedCity?.value
     } officials demanding that they restructure their budget to defund police and increase investment in our community instead. I did so in less than a minute thanks to ${
-    platform === 'twitter' ? '@spkup_spknow' : 'Speak Up Speak Now'
+      platform === 'twitter' ? '@spkup_spknow' : 'Speak Up Speak Now'
     }! Check it out at${platform === 'facebook' ? ':' : ''}`
 
   const emailBody =
     selectedCity !== null
       ? emailData.makeBody({
-        name: personName,
-        city: selectedCity.label,
-      })
+          name: personName,
+          city: selectedCity.label,
+        })
       : ''
 
   return (
@@ -85,7 +85,7 @@ const LandingPage = () => {
       flexDirection="column"
       alignItems="stretch"
     >
-      <Navbar />
+      <Navbar2 />
       <Box
         container={{
           _: { maxWidth: '90%' },

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Box from 'src/components/Box'
 import { ExternalLink } from 'src/components/Link'
-import Navbar from 'src/components/Navbar'
+import Navbar2 from 'src/components/Navbar2'
 import * as Text from 'src/components/Text'
 import { makeMailToLink } from 'src/utils/mailto'
 
@@ -28,12 +28,12 @@ const SJEmail2 = () => {
       width="100%"
       overflowX="hidden"
       bg="black"
-      py={4}
+      py={0}
       display="flex"
       flexDirection="column"
       alignItems="stretch"
     >
-      <Navbar />
+      <Navbar2 />
       <Box
         container={{
           _: { maxWidth: '90%' },
