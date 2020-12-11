@@ -9,6 +9,8 @@ import SJEmail2 from 'src/pages/SJEmail2'
 import CityBudget2 from 'src/pages/CityBudget2'
 import Resources from 'src/pages/Resources'
 import PieCharts from 'src/pages/PieCharts'
+import OrdersPage from 'src/pages/OrdersPage'
+import CityReps from 'src/pages/CityReps'
 
 interface PageType {
   name: string
@@ -48,6 +50,18 @@ export const pages: Array<PageType> = [
     exact: true,
     path: '/j4gjj',
     component: SJEmail2,
+  },
+  {
+    name: 'OrdersPage',
+    exact: true,
+    path: '/orders',
+    component: OrdersPage,
+  },
+  {
+    name: 'CityReps',
+    exact: true,
+    path: '/cityreps',
+    component: CityReps,
   },
   {
     name: 'newCityRequest',

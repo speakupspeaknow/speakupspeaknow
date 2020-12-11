@@ -14,16 +14,35 @@ import {
   baseButtonStyles,
   styleVariants,
 } from 'src/styles/components/buttonlike'
+import { cityBudgetObjects } from 'src/data/cityBudgetObjects'
+import Graph from 'src/components/Graph'
+import './citybudgets.css'
 // import { useAnalytics } from 'use-analytics'
+
+// interface CityOption {     //old cityOption interface
+//   value: string
+//   label: string
+// }
 
 interface CityOption {
   value: string
   label: string
+  policeBudget: any
+  generalFund: any
+  Population: any
+  gfMinusPb: any
 }
-
 // const { track } = useAnalytics()
+const cityOptions = cityBudgetObjects.map((budgetData) => ({
+  value: budgetData.cityState,
+  label: budgetData.cityState,
+  policeBudget: budgetData.policeBudget,
+  generalFund: budgetData.generalFund,
+  Population: budgetData.Population,
+  gfMinusPb: budgetData.gfMinusPb,
+}))
 
-const optionCities2 = [
+export const optionCities2 = [
   'Alameda, CA',
   'Alhambra, CA',
   'Anaheim, CA',
@@ -259,63 +278,19 @@ const CityBudget2 = () => {
           flexDirection="column"
         >
           <Text.Heading text-a="s" color="white" fontWeight={700} mb={3}>
-            Re-imagine your city budget.
+            Re-imagine your city budget
           </Text.Heading>
 
           <Text.SectionSubheader color="white" mb={3}>
-            Select your city below and see what it would look like if Police
-            were defunded by just <strong>1/2</strong> and the appropriated
-            funds were alloted like so:
+            Select your city below and see what portion of your city's budget
+            the police take up and how it could be re-distributed to benefit
+            your community
           </Text.SectionSubheader>
-          <ul
-            css={css`
-              color: white;
-              text-align: center;
-            `}
-          >
-            <Text.Body color="white" mb={3}>
-              <strong>50% - Basic Needs </strong>{' '}
-            </Text.Body>
-            <img
-              width="10%"
-              alt="Basic Needs Icon: little heart over a house"
-              src={'./bni.png'}
-            />{' '}
-            <Text.Body color="white" mb={3}>
-              Housing, Food, Healthcare and Job Training
-            </Text.Body>
-            <Text.Body color="white" mb={3}>
-              <strong>20% - Public Infrastructure </strong>
-            </Text.Body>
-            <div>
-              <img
-                width="10%"
-                alt="Public Infrastructure Icon: big building "
-                src={'./pii.png'}
-              />{' '}
-              <Text.Body color="white" mb={3}>
-                Transportation, Libraries, and Parks
-              </Text.Body>{' '}
-            </div>
-            <Text.Body color="white" mb={3}>
-              <strong>30% - New Community Safety Measures </strong>
-            </Text.Body>
-            <div>
-              <img
-                width="10%"
-                alt="New Community Safety Measures Icon: two people facing each other"
-                src={'./rcsi.png'}
-              />{' '}
-              <Text.Body color="white" mb={3}>
-                Community and Rehabilitation Oriented Programs{' '}
-              </Text.Body>{' '}
-            </div>
-          </ul>
 
           <Select
             css={css(typography.textStyles.body)}
             value={selectedCity}
-            options={optionCities2}
+            options={cityOptions}
             className="mb-4"
             placeholder="Select City"
             isSearchable
@@ -330,68 +305,205 @@ const CityBudget2 = () => {
                 text-align: center;
               `}
             >
-              <Image
-                width="60%"
-                border="5px solid white"
-                src={`./CityInfographics/${cityPath}.png`}
-              />
-              <Box
-                display="flex"
-                css={css`
-                  & > *:not(:last-child) {
-                    margin-right: 10px;
-                  }
-                `}
-              >
-                <a href={`./CityInfographics/${cityPath}.png`} download>
-                  <Button
-                  // onClick={() => {
-                  //     track('Download Infographic', {
+              {' '}
+              <Text.SectionHeader color="white">
+                {selectedCity.label}{' '}
+              </Text.SectionHeader>
+              <Text.Body color="white">
+                Police Budget:{' '}
+                <strong>${selectedCity.policeBudget.toLocaleString()}</strong>
+              </Text.Body>
+              <Text.Body color="white">
+                General Fund:{' '}
+                <strong>${selectedCity.generalFund.toLocaleString()}</strong>
+              </Text.Body>
+              <Box display={{ _: 'none', md: 'flex' }}>
+                <Graph
+                  cx={385}
+                  PoliceBudget={selectedCity.policeBudget}
+                  GeneralFundRemainder={selectedCity.gfMinusPb}
+                />
+              </Box>
+              <Box display={{ _: 'flex', md: 'none' }}>
+                <Graph
+                  cx={210}
+                  PoliceBudget={selectedCity.policeBudget}
+                  GeneralFundRemainder={selectedCity.gfMinusPb}
+                />
+              </Box>
+              {/* </Box> */}
+              <Box>
+                <Text.SectionSubheader color="white" mb={3}>
+                  This is what it could look like if {cityName} Police
+                  Department were defunded by just <strong>50%</strong> and the
+                  appropriated funds were alloted like so:
+                </Text.SectionSubheader>
+                {/* <ul
+                  css={css`
+              color: white;
+              text-align: center;
+            `}
+                > */}
+                <Box id="grid-container">
+                  {/* <Box
+                    id="a"
+                  // display="flex"
+                  // // position="absolute"
+                  // // height="100%"
+                  // // width="70%"
+                  // flexDirection="row"
+                  // // alignItems="start"
+                  // justifyContent="space-between"
+                  > */}
+                  <Text.Body id="a-a" color="white" mb={3}>
+                    <strong>50% to Basic Needs </strong>
+                  </Text.Body>
+                  <Text.Body id="a-b" color="white" mb={3}>
+                    <strong>20% to Public Infrastructure </strong>
+                  </Text.Body>
+                  <Text.Body id="a-c" color="white" mb={3}>
+                    <strong>30% to New Community Safety Measures </strong>
+                  </Text.Body>
+                  {/* </Box> */}
+                  {/* <Box
+                    id="b"
+                  // display="flex"
+                  // // position="absolute"
+                  // // height="100%"
+                  // // width="70%"
+                  // flexDirection="row"
+                  // // alignItems="start"
+                  // justifyContent="space-between"
+                  // width="100%"
+                  > */}
+                  <img
+                    id="b-a"
+                    width="40%"
+                    alt="Basic Needs Icon: little heart over a house"
+                    src={'./bni.png'}
+                  />{' '}
+                  <img
+                    id="b-b"
+                    width="40%"
+                    alt="Public Infrastructure Icon: big building "
+                    src={'./pii.png'}
+                  />{' '}
+                  <img
+                    id="b-c"
+                    width="40%"
+                    alt="New Community Safety Measures Icon: two people facing each other"
+                    src={'./rcsi.png'}
+                  />{' '}
+                  {/* </Box> */}
+                  {/* <Box
+                    id="c"
+                  // // borderTop="10px"
+                  // display="flex"
+                  // // position="absolute"
+                  // // height="100%"
+                  // // width="70%"
+                  // flexDirection="row"
+                  // alignItems="start"
+                  // justifyContent="space-between"
 
-                  //     })
-                  // }}
+                  > */}
+                  <Text.Body id="c-a" color="white" mb={3}>
+                    Housing, Food, Healthcare and Career Training
+                  </Text.Body>
+                  <Text.Body id="c-b" color="white" mb={3}>
+                    Transportation, Libraries, and Parks
+                  </Text.Body>{' '}
+                  <Text.Body id="c-c" color="white" mb={3}>
+                    Community and Rehabilitation Oriented Programs{' '}
+                  </Text.Body>{' '}
+                  {/* </Box> */}
+                </Box>
+
+                {/* <div> */}
+
+                {/* </div> */}
+
+                {/* <div> */}
+
+                {/* </div> */}
+                {/* </ul> */}
+
+                <Box
+                  mt={4}
+                  css={css`
+                    color: white;
+                    text-align: center;
+                  `}
+                >
+                  <Image
+                    width="60%"
+                    border="5px solid white"
+                    src={`./CityInfographics/${cityPath}.png`}
+                  />
+                  <Box
+                    display="flex"
+                    css={css`
+                      & > *:not(:last-child) {
+                        margin-right: 10px;
+                      }
+                    `}
                   >
-                    Download
-                  </Button>
-                </a>
+                    <a href={`./CityInfographics/${cityPath}.png`} download>
+                      <Button
+                      // onClick={() => {
+                      //     track('Download Infographic', {
 
-                <FacebookShareButton
-                  // onClick={() => {
-                  //     track('Share Twitter', {
+                      //     })
+                      // }}
+                      >
+                        Download
+                      </Button>
+                    </a>
 
-                  //         city: selectedCity
-                  //     })
-                  // }}
-                  quote={socialMediaMessage('facebook')}
-                  style={{
-                    outline: 'none',
-                    ...baseButtonStyles,
-                    ...styleVariants.shareFacebook,
-                  }}
-                  url="https://www.speakupspeaknow.org"
-                >
-                  Share on Facebook
-                </FacebookShareButton>
-                <TwitterShareButton
-                  // onClick={() => {
-                  //     track('Share Twitter', {
+                    <FacebookShareButton
+                      // onClick={() => {
+                      //     track('Share Twitter', {
 
-                  //         city: selectedCity,
-                  //     })
-                  // }}
-                  style={{
-                    outline: 'none',
-                    ...baseButtonStyles,
-                    ...styleVariants.shareTwitter,
-                  }}
-                  title={socialMediaMessage('twitter')}
-                  url="https://www.speakupspeaknow.org"
-                >
-                  Share on Twitter
-                </TwitterShareButton>
+                      //         city: selectedCity
+                      //     })
+                      // }}
+                      quote={socialMediaMessage('facebook')}
+                      style={{
+                        outline: 'none',
+                        ...baseButtonStyles,
+                        ...styleVariants.shareFacebook,
+                      }}
+                      url="https://www.speakupspeaknow.org"
+                    >
+                      Share on Facebook
+                    </FacebookShareButton>
+                    <TwitterShareButton
+                      // onClick={() => {
+                      //     track('Share Twitter', {
+
+                      //         city: selectedCity,
+                      //     })
+                      // }}
+                      style={{
+                        outline: 'none',
+                        ...baseButtonStyles,
+                        ...styleVariants.shareTwitter,
+                      }}
+                      title={socialMediaMessage('twitter')}
+                      url="https://www.speakupspeaknow.org"
+                    >
+                      Share on Twitter
+                    </TwitterShareButton>
+                  </Box>
+                </Box>
               </Box>
             </Box>
           )}
+
+          {/* <Text.PageHeader text-a="s" color="white" fontWeight={700} mb={3}>
+            Re-imagine your city budget.
+          </Text.PageHeader> */}
+
           <Box mt={5} pt={3} borderTop={`1px solid ${colors.textGray}`}>
             <Text.Body color="gray" mb={2}>
               Speak up, Speak now is an intitative that empowers the people to
