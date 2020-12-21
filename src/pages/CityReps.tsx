@@ -27,35 +27,40 @@ import curriedMix from 'polished/lib/color/mix'
 // }
 
 interface CityOption {
-  value: string
+  value: keyof typeof cDM
   label: string
   post: any
   name: any
   email: any
 }
-declare module 'react' {
-  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
-    // extends React's HTMLAttributes
-    class?: string
-  }
-}
+// declare module 'react' {
+//     interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+//         // extends React's HTMLAttributes
+//         class?: string
+//     }
+// }
 
 // const { track } = useAnalytics()
 // for each city in the cDM, and for each person/object in that city get the
 // value, label, post, name, email
 
-// const ck = Object.keys(cDM)
-// const cityOptions = cDM[].map((cityData) => ({
+const cityOptions = Object.keys(cDM).map((cityName) => ({
+  value: cityName,
+  label: cityName,
+}))
 
+// const cityOfficials = ck.map((city) => {
+//     const cityData = cDM[city]
 //     // cDM[city].map((cityData) => ({
-//     value: cityData.CS,
-//     label: cityData.CS,
-//     post: cityData.Post,
-//     name: cityData.Name,
-//     email: cityData.Email,
-
+//     // return {
+//     //     value: cityData.CS,
+//     //     label: cityData.CS,
+//     //     post: cityData.Post,
+//     //     name: cityData.Name,
+//     //     email: cityData.Email,
+//     // }
 // }
-// ))
+// )
 
 // const cityOptions = cityBudgetObjects.map((budgetData) => ({
 //     value: budgetData.cityState,
@@ -65,7 +70,7 @@ declare module 'react' {
 //     Population: budgetData.Population,
 //     gfMinusPb: budgetData.gfMinusPb
 //   }))
-// const cityOptions= ck.forEach((city: string) => {
+// const cityOptions = ck.forEach((city: string) => {
 
 //     cDM[city] = cDM[city].map((cityData) => ({
 //         value: cityData.CS,
@@ -78,16 +83,16 @@ declare module 'react' {
 //     ))
 // })
 
-const ck = Object.keys(cDM)
-const cityOptions = ck.map((cityData) => ({
-  value: cityData[1],
-  label: cityData[1],
-  post: cityData[2],
-  name: cityData[3],
-  email: cityData[4],
-}))
+// const ck = Object.keys(cDM)
+// const cityOptions = ck.map((cityData) => ({
+//     value: cityData[1],
+//     label: cityData[1],
+//     post: cityData[2],
+//     name: cityData[3],
+//     email: cityData[4],
+// }))
 
-const citops = AlamedaObjects[0]
+// const citops = AlamedaObjects[0]
 
 // export const optionCities2 = [
 //     "Alameda, CA", "Alhambra, CA", "Anaheim, CA", "Antioch, CA", "Apple Valley, CA", "Atlanta, GA", "Auburn, CA", "Austin, TX", "Bakersfield, CA", "Baldwin Park, CA", "Baltimore, MD", "Bellevue, WA", "Berkeley, CA", "Boston, MA", "Boulder, CO", "Buena Park, CA", "Burbank, CA", "Camarillo, CA", "Cambridge, MA", "Carlsbad, CA", "Carson, CA", "Charlotte, NC", "Chicago, IL", "Chico, CA", "Chino, CA", "Chino Hills, CA", "Chula Vista, CA", "Citrus Heights, CA", "Cleveland, OH", "Clovis, CA", "College Park, MD", "Columbia, MO", "Columbus, OH", "Concord, CA", "Compton, CA", "Corona, CA", "Costa Mesa, CA", "Cupertino, CA", "Dallas, TX", "Daly City, CA", "Davis, CA", "Denver, CO", "Detroit, MI", "Downey, CA", "Dublin, CA", "Emeryville, CA", "Escondido, CA", "Elk Grove, CA", "El Cajon, CA", "El Monte, CA", "Fairfield, CA", "Fontana, CA", "Folsom, CA", "Fremont, CA", "Fresno, CA", "Fullerton, CA", "Garden Grove, CA", "Glendale, CA", "Grand Rapids, MI", "Hawthorne, CA", "Hayward, CA", "Hemet, CA", "Hesperia, CA", "Houston, TX", "Huntington Beach, CA", "Indio, CA", "Indianapolis, IN", "Inglewood, CA", "Irvine, CA", "Jurupa Valley, CA", "Lakewood, CA", "Lake Forest, CA", "Lancaster, CA", "Larkspur, CA", "Livermore, CA", "Lincoln, NE", "Los Altos, CA", "Los Angeles, CA", "Long Beach, CA", "Louisville, KY", "Lynwood, CA", "Manchester, NH", "Manteca, CA", "Memphis, TN", "Menifee, CA", "Menlo Park, CA", "Merced, CA", "Miami, FL", "Mill Valley, CA", "Milpitas, CA", "Milwaukee, WI", "Mission Viejo, CA", "Modesto, CA", "Moreno Valley, CA", "Mountain View, CA", "Murrieta, CA", "Napa, CA", "Nashua, NH", "Nashville, TN", "Newark, NJ", "Newport Beach, CA", "New York, NY", "Norwalk, CA", "Oakland, CA", "Oceanside, CA", "Oklahoma City, OK", "Omaha, NE", "Ontario, CA", "Orange, CA", "Orlando, FL", "Oxnard, CA", "Palmdale, CA", "Palo Alto, CA", "Pasadena, CA", "Perris, CA", "Placentia, CA", "Pleasanton, CA", "Pittsburgh, PA", "Philadelphia, PA", "Phoenix, AZ", "Pomona, CA", "Porterville, CA", "Portland, OR", "Raleigh, NC", "Rancho Cordova, CA", "Rancho Cucamonga, CA", "Redding, CA", "Redlands, CA", "Redondo Beach, CA", "Redwood City, CA", "Reno, NV", "Rialto, CA", "Richmond, CA", "Riverside, CA", "Roseville, CA", "Sacramento, CA", "Salinas, CA", "Salt Lake City, UT", "San Antonio, TX", "San Bernardino, CA", "San Dimas, CA", "San Diego, CA", "San Francisco, CA", "San Jose, CA", "San Leandro, CA", "San Marcos, CA", "San Mateo, CA", "San Ramon, CA", "Santa Ana, CA", "Santa Barbara, CA", "Santa Clara, CA", "Santa Clarita, CA", "Santa Cruz, CA", "Santa Maria, CA", "Santa Monica, CA", "Santa Rosa, CA", "Seattle, WA", "Simi Valley, CA", "South Gate, CA", "Springfield, MA", "Stockton, CA", "St. Paul, MN", "Sunnyvale, CA", "Temecula, CA", "Thousand Oaks, CA", "Torrance, CA", "Tracy, CA", "Tucson, AZ", "Tulsa, OK", "Tustin, CA", "Turlock, CA", "Upland, CA", "Union City, CA", "Vacaville, CA", "Vallejo, CA", "Ventura, CA", "Victorville, CA", "Visalia, CA", "Vista, CA", "Washington DC", "West Covina, CA", "Walnut Creek, CA", "Westminster, CA", "Whittier, CA", "Yuba City, CA"
@@ -115,6 +120,13 @@ const CityReps = () => {
     .join('-') // "anaheim-ca"
 
   const cityName = selectedCity?.value.split(',').shift()
+  const cityOfficials = selectedCity?.value
+    ? cDM[selectedCity.value].map((cityData) => ({
+        post: cityData.Post,
+        name: cityData.Name,
+        email: cityData.Email,
+      }))
+    : []
 
   const socialMediaMessage = (platform: string) =>
     `I was able to see how ${cityName} can divest from police and invest in our community thanks to thanks to ${
@@ -189,17 +201,17 @@ const CityReps = () => {
                   </Text.Body>
                 </Box>
 
-                {cityDataObjects.map((item) => (
+                {cityOfficials.map((item) => (
                   <Box id="grid-container2">
                     <Text.Body className="grid-item" color="white" mb={3}>
-                      {item.Post}
+                      {item.post}
                     </Text.Body>
 
                     <Text.Body className="grid-item" color="white" mb={3}>
-                      {item.Name}
+                      {item.name}
                     </Text.Body>
                     <Text.Body className="grid-item" color="white" mb={3}>
-                      {item.Email}
+                      {item.email}
                     </Text.Body>
                   </Box>
                 ))}
