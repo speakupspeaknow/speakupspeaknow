@@ -87,9 +87,9 @@ const LandingPage = () => {
       position="relative"
       zIndex={0}
     >
-      <Box position="relative" zIndex={1}>
-        <Navbar2 />
-      </Box>
+
+      <Navbar2 />
+
       <Box
         position="relative"
         zIndex={0}

@@ -13,6 +13,8 @@ interface Props { }
 
 const bp = 'md'
 
+const bp = 'md'
+
 const Navbar = (props: Props) => (
   <Box
     p={35}
