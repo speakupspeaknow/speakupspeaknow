@@ -84,9 +84,15 @@ const LandingPage = () => {
       display="flex"
       flexDirection="column"
       alignItems="stretch"
+      position="relative"
+      zIndex={0}
     >
+
       <Navbar2 />
+
       <Box
+        position="relative"
+        zIndex={0}
         container={{
           _: { maxWidth: '90%' },
           lg: { maxWidth: '50em' },
