@@ -129,7 +129,9 @@ const CityReps = () => {
     : []
 
   const socialMediaMessage = (platform: string) =>
+
     `Found ${cityName}'s city officials thanks to ${
+
       platform === 'twitter' ? '@spkup_spknow' : 'Speak Up Speak Now'
     }! Check it out at${platform === 'facebook' ? ':' : ''}`
 
@@ -244,7 +246,9 @@ const CityReps = () => {
                         ...baseButtonStyles,
                         ...styleVariants.shareFacebook,
                       }}
+
                       url="https://www.speakupspeaknow.org/cityreps"
+
                     >
                       Share on Facebook
                     </FacebookShareButton>
@@ -261,7 +265,9 @@ const CityReps = () => {
                         ...styleVariants.shareTwitter,
                       }}
                       title={socialMediaMessage('twitter')}
+
                       url="https://www.speakupspeaknow.org/cityreps"
+
                     >
                       Share on Twitter
                     </TwitterShareButton>
@@ -277,10 +283,12 @@ const CityReps = () => {
 
           <Box mt={5} pt={3} borderTop={`1px solid ${colors.textGray}`}>
             <Text.Body color="gray" mb={2}>
+
               <InternalLink to="/hp">Speak up, Speak now</InternalLink> is an
               intitative that empowers the people to hold their city officials
               accountable. Want to contribute? Want to get involved? Please let
               us know <InternalLink to="/getinvolved">here</InternalLink>.
+
             </Text.Body>
           </Box>
         </Box>
