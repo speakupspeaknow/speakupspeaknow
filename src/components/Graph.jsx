@@ -1,3 +1,4 @@
+
 import React, { PureComponent } from 'react'
 import { PieChart, Pie, Sector } from 'recharts'
 import { display } from 'styled-system'
@@ -142,3 +143,4 @@ export default class Graph extends PureComponent {
     )
   }
 }
+

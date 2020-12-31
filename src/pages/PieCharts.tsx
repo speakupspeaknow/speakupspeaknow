@@ -14,6 +14,7 @@ import {
   baseButtonStyles,
   styleVariants,
 } from 'src/styles/components/buttonlike'
+
 import { ResponsiveContainer } from 'recharts'
 // import { useAnalytics } from 'use-analytics'
 // import * as Recharts from 'recharts'
@@ -23,16 +24,20 @@ import { optionCities2 } from 'src/pages/CityBudget2'
 
 const bp = 'md'
 
+
 interface CityOption {
   value: string
   label: string
+
   policeBudget: any
   generalFund: any
   Population: any
   gfMinusPb: any
+
 }
 
 // const { track } = useAnalytics()
+
 
 const cityOptions = cityBudgetObjects.map((budgetData) => ({
   value: budgetData.cityState,
@@ -41,6 +46,7 @@ const cityOptions = cityBudgetObjects.map((budgetData) => ({
   generalFund: budgetData.generalFund,
   Population: budgetData.Population,
   gfMinusPb: budgetData.gfMinusPb,
+
 }))
 
 const PieCharts = () => {
@@ -55,7 +61,9 @@ const PieCharts = () => {
     [setSelectedCity],
   )
   // Anaheim, CA => anaheim-ca.png
+
   // const poleeceBudget = selectedCity?.value // "Anaheim, CA"
+
 
   const cityName = selectedCity?.value.split(',').shift()
 
@@ -90,23 +98,30 @@ const PieCharts = () => {
           flexDirection="column"
         >
           <Text.Heading text-a="s" color="white" fontWeight={700} mb={3}>
+
             Pie charts
+
           </Text.Heading>
 
           <Text.SectionSubheader color="white" mb={3}>
             Select your city below and see what police pie chart looks like
           </Text.SectionSubheader>
 
+
           <Select
             css={css(typography.textStyles.body)}
             value={selectedCity}
+
             options={cityOptions}
+
             className="mb-4"
             placeholder="Select City"
             isSearchable
             onChange={handleCityChange}
           />
+
           <div> </div>
+
           {selectedCity && (
             <Box
               mt={4}
@@ -115,6 +130,7 @@ const PieCharts = () => {
                 text-align: center;
               `}
             >
+
               {' '}
               <Text.SectionHeader color="white">
                 {selectedCity.label}{' '}
@@ -141,6 +157,7 @@ const PieCharts = () => {
                   GeneralFundRemainder={selectedCity.gfMinusPb}
                 />
               </Box>
+
               <Box
                 display="flex"
                 css={css`

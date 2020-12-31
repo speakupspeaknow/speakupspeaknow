@@ -8,10 +8,12 @@ import EmbeddedTypeform from 'src/pages/EmbeddedTypeform'
 import SJEmail2 from 'src/pages/SJEmail2'
 import CityBudget2 from 'src/pages/CityBudget2'
 import Resources from 'src/pages/Resources'
+
 import PieCharts from 'src/pages/PieCharts'
 import OrdersPage from 'src/pages/OrdersPage'
 import CityReps from 'src/pages/CityReps'
 import HomePage from 'src/pages/HomePage'
+
 
 interface PageType {
   name: string
@@ -51,8 +53,10 @@ export const pages: Array<PageType> = [
     exact: true,
     path: '/pc',
     component: PieCharts,
+
   },
   {
+
     name: 'SJEmail2',
     exact: true,
     path: '/j4gjj',
