@@ -34,8 +34,8 @@ const navItems = [
     path: '/cb2',
   },
   {
-    name: 'Resources',
-    path: '/resources',
+    name: 'Local Representatives',
+    path: '/cityreps',
   },
 ]
 
@@ -94,11 +94,13 @@ const Navbar2 = (props: Props) => {
       justifyContent="space-between"
     >
       <Box>
-        <Logo
-          css={css`
-            height: 100%;
-          `}
-        />
+        <InternalLink to="/hp">
+          <Logo
+            css={css`
+              height: 100%;
+            `}
+          />
+        </InternalLink>
       </Box>
 
       {/* Nav menu items */}

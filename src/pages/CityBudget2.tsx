@@ -248,7 +248,7 @@ const CityBudget2 = () => {
   const cityName = selectedCity?.value.split(',').shift()
 
   const socialMediaMessage = (platform: string) =>
-    `I was able to see how ${cityName} can divest from police and invest in our community thanks to thanks to ${
+    `I was able to see how ${cityName} can divest from police and invest in our community thanks to ${
       platform === 'twitter' ? '@spkup_spknow' : 'Speak Up Speak Now'
     }! Check it out at${platform === 'facebook' ? ':' : ''}`
 
@@ -490,7 +490,7 @@ const CityBudget2 = () => {
                         ...styleVariants.shareTwitter,
                       }}
                       title={socialMediaMessage('twitter')}
-                      url="https://www.speakupspeaknow.org"
+                      url="https://www.speakupspeaknow.org/cb2"
                     >
                       Share on Twitter
                     </TwitterShareButton>
@@ -506,10 +506,10 @@ const CityBudget2 = () => {
 
           <Box mt={5} pt={3} borderTop={`1px solid ${colors.textGray}`}>
             <Text.Body color="gray" mb={2}>
-              Speak up, Speak now is an intitative that empowers the people to
-              hold their city officials accountable. Want to contribute? Want to
-              get involved? Please let us know{' '}
-              <InternalLink to="/getinvolved">here</InternalLink>.
+              <InternalLink to="/hp">Speak up, Speak now</InternalLink> is an
+              intitative that empowers the people to hold their city officials
+              accountable. Want to contribute? Want to get involved? Please let
+              us know <InternalLink to="/getinvolved">here</InternalLink>.
             </Text.Body>
           </Box>
         </Box>
