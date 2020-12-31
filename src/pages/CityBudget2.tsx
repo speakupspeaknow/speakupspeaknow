@@ -25,7 +25,6 @@ import './citybudgets.css'
 //   label: string
 // }
 
-
 interface CityOption {
   value: string
   label: string
@@ -34,7 +33,6 @@ interface CityOption {
   generalFund: any
   Population: any
   gfMinusPb: any
-
 }
 // const { track } = useAnalytics()
 const cityOptions = cityBudgetObjects.map((budgetData) => ({
@@ -46,9 +44,7 @@ const cityOptions = cityBudgetObjects.map((budgetData) => ({
   gfMinusPb: budgetData.gfMinusPb,
 }))
 
-
 export const optionCities2 = [
-
   'Alameda, CA',
   'Alhambra, CA',
   'Anaheim, CA',
@@ -284,7 +280,6 @@ const CityBudget2 = () => {
           flexDirection="column"
         >
           <Text.Heading text-a="s" color="white" fontWeight={700} mb={3}>
-
             Re-imagine your city budget
           </Text.Heading>
 
@@ -294,13 +289,10 @@ const CityBudget2 = () => {
             your community
           </Text.SectionSubheader>
 
-
           <Select
             css={css(typography.textStyles.body)}
             value={selectedCity}
-
             options={cityOptions}
-
             className="mb-4"
             placeholder="Select City"
             isSearchable
@@ -315,7 +307,6 @@ const CityBudget2 = () => {
                 text-align: center;
               `}
             >
-
               {' '}
               <Text.SectionHeader color="white">
                 {selectedCity.label}{' '}
@@ -484,7 +475,7 @@ const CityBudget2 = () => {
                         ...baseButtonStyles,
                         ...styleVariants.shareFacebook,
                       }}
-                      url="https://www.speakupspeaknow.org"
+                      url="https://www.speakupspeaknow.org/cb2"
                     >
                       Share on Facebook
                     </FacebookShareButton>
@@ -514,7 +505,6 @@ const CityBudget2 = () => {
           {/* <Text.PageHeader text-a="s" color="white" fontWeight={700} mb={3}>
             Re-imagine your city budget.
           </Text.PageHeader> */}
-
 
           <Box mt={5} pt={3} borderTop={`1px solid ${colors.textGray}`}>
             <Text.Body color="gray" mb={2}>
