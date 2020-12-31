@@ -13,6 +13,9 @@ import PieCharts from 'src/pages/PieCharts'
 import OrdersPage from 'src/pages/OrdersPage'
 import CityReps from 'src/pages/CityReps'
 
+import HomePage from 'src/pages/HomePage'
+
+
 
 interface PageType {
   name: string
@@ -28,6 +31,12 @@ export const pages: Array<PageType> = [
     exact: true,
     path: '/',
     component: LandingPage,
+  },
+  {
+    name: 'HomePage',
+    exact: true,
+    path: '/hp',
+    component: HomePage,
   },
   {
     name: 'CityBudget2',
