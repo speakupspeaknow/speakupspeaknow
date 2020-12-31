@@ -501,7 +501,9 @@ const CityBudget2 = () => {
                         ...styleVariants.shareTwitter,
                       }}
                       title={socialMediaMessage('twitter')}
+
                       url="https://www.speakupspeaknow.org/cb2"
+
                     >
                       Share on Twitter
                     </TwitterShareButton>
